@@ -35,27 +35,27 @@ var PAPER_LINKS = {
   // A bi-directional LSTM network for estimating continuous upper limb
   // movement from surface electromyography
   // IEEE Robotics and Automation Letters（RA-L）· 2021 · 6(4): 7217-7224 · 被引 113
-  "ra-l-bilstm-2021": "",
+  "ra-l-bilstm-2021": "https://ieeexplore.ieee.org/document/9484719",
 
   // sEMG-based continuous estimation of grasp movements by long short-term
   // memory network
   // Biomedical Signal Processing and Control · 2020 · 59: 101774 · 被引 91
-  "bspc-lstm-2020": "",
+  "bspc-lstm-2020": "https://www.sciencedirect.com/science/article/abs/pii/S1746809419303556",
 
   // Surface electromyogram, kinematic, and kinetic dataset of lower limb
   // walking for movement intent recognition
   // Scientific Data（Nature 子刊）· 2023 · 10(1): 358 · 被引 67
-  "scidata-walking-2023": "",
+  "scidata-walking-2023": "https://www.nature.com/articles/s41597-023-02263-3",
 
   // Long exposure convolutional memory network for accurate estimation of
   // finger kinematics from surface electromyographic signals
   // Journal of Neural Engineering · 2021 · 18(2): 026027 · 被引 54
-  "jne-lemc-2021": "",
+  "jne-lemc-2021": "https://iopscience.iop.org/article/10.1088/1741-2552/abd461/meta",
 
   // A novel and efficient feature extraction method for deep learning
   // based continuous estimation
   // IEEE Robotics and Automation Letters（RA-L）· 2021 · 6(4): 7341-7348 · 被引 41
-  "ra-l-feature-2021": "",
+  "ra-l-feature-2021": "https://ieeexplore.ieee.org/abstract/document/9484763",
 
   // Towards CSI-based diversity activity recognition via LSTM-CNN
   // Encoder-Decoder neural network
