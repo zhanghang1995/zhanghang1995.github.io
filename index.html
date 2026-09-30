@@ -985,30 +985,9 @@
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════════════════════════
-       论文原文链接配置区（人工维护）PAPER_LINKS
-       · 每行 key 对应一篇论文：把 DOI / 出版社 / arXiv 等网址填入引号内
-       · 填写后该论文标题自动变为可点击链接（新窗口打开），留空则保持纯文本
-       示例：  "ra-l-bilstm-2021": "https://doi.org/10.1109/LRA.2021.309xxxx",
-  ═══════════════════════════════════════════════════════════════════ -->
+  <!-- 论文原文链接配置：已独立为 papers.js 文件，编辑该文件即可为每篇论文配置地址（填入 URL 后标题自动变为可点击链接） -->
+  <script src="papers.js"></script>
   <script>
-    var PAPER_LINKS = {
-      /* ----- 期刊论文 ----- */
-      "ra-l-bilstm-2021":     "", // A bi-directional LSTM network...（IEEE RA-L 2021 · 被引 113）
-      "bspc-lstm-2020":       "", // sEMG-based continuous estimation of grasp movements（BSPC 2020 · 被引 91）
-      "scidata-walking-2023": "", // Surface electromyogram...lower limb walking（Scientific Data 2023 · 被引 67）
-      "jne-lemc-2021":        "", // Long exposure convolutional memory network（J. Neural Eng. 2021 · 被引 54）
-      "ra-l-feature-2021":    "", // A novel and efficient feature extraction method（IEEE RA-L 2021 · 被引 41）
-      "neurocomputing-2020":  "", // Towards CSI-based diversity activity recognition（Neurocomputing 2020 · 共同一作）
-      /* ----- 会议论文 ----- */
-      "robio-2019":           "", // DFNN-based gesture recognition（IEEE ROBIO 2019 · 一作）
-      "ijcai-w-2019":         "", // Towards diversity activity recognition（IJCAI 2019 Workshop · 共同一作）
-      "embc-grasp-2019":      "", // Continuous estimation of grasp movement...TCN（IEEE EMBC 2019 · 一作）
-      "embc-joints-2019":     "", // Continuous upper limb joint angles estimation（IEEE EMBC 2019 · 一作）
-      "ccrs-dlgc-2019":       "", // 基于DLGC神经网络的...时空特性变换（CCRS 2019 · 中文）
-      /* ----- 学术专著 ----- */
-      "book-wifi-dl-2021":    ""  // Deep Learning for Device-free HAR Using WiFi Signals（专著章节 2021）
-    };
     (function () {
       document.querySelectorAll(".pub[data-pub-id]").forEach(function (el) {
         var url = (PAPER_LINKS[el.getAttribute("data-pub-id")] || "").trim();
