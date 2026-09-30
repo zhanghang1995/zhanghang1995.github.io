@@ -461,6 +461,44 @@
     .honor li::before { content: "✦"; position: absolute; left: 2px; color: var(--gold); font-size: 13px; top: 11px; }
     .honor li strong { color: var(--ink); }
 
+    /* ---------- 媒体报道 ---------- */
+    .media-list { display: grid; gap: 14px; }
+    .media-card {
+      display: flex;
+      gap: 22px;
+      align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 24px;
+      color: inherit;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .media-card:hover { box-shadow: 0 8px 26px rgba(28, 43, 58, 0.08); transform: translateY(-2px); text-decoration: none; }
+    .media-src {
+      flex: 0 0 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 2px;
+    }
+    .src-badge {
+      align-self: flex-start;
+      font-size: 12px;
+      color: var(--gold);
+      background: var(--gold-light);
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .src-name { font-family: var(--serif); font-size: 14.5px; font-weight: 700; color: var(--ink); line-height: 1.45; }
+    .src-date { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+    .media-body { flex: 1; min-width: 0; }
+    .media-body h3 { font-family: var(--serif); font-size: 16.5px; line-height: 1.55; color: var(--accent-dark); }
+    .media-card:hover .media-body h3 { color: var(--accent); }
+    .media-body p { margin-top: 6px; font-size: 13.8px; color: #44566b; line-height: 1.85; }
+
     /* ---------- 页脚 ---------- */
     footer {
       border-top: 1px solid var(--line);
@@ -495,6 +533,7 @@
         <a href="#publications">学术成果</a>
         <a href="#timeline">履历</a>
         <a href="#honors">荣誉</a>
+        <a href="#media">报道</a>
         <a class="nav-scholar" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
       </div>
     </div>
@@ -887,6 +926,49 @@
             <li><strong>「华彩杯」算力大赛</strong>数字内容专题二等奖</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- 媒体报道 -->
+    <section id="media">
+      <div class="sec-head">
+        <div class="sec-label">Media Coverage</div>
+        <h2>媒体报道<span class="en-title">从求学探索到产品落地</span></h2>
+      </div>
+      <div class="media-list">
+        <a class="media-card" href="http://mp.cnfol.com/52773/article/1785505108-142606144.html" target="_blank" rel="noopener">
+          <div class="media-src">
+            <span class="src-badge">产品报道</span>
+            <span class="src-name">智能相对论 · 中金在线</span>
+            <span class="src-date">2026.07 · ChinaJoy</span>
+          </div>
+          <div class="media-body">
+            <h3>《AI 钻进游戏社区，咪咕游戏打的是什么算盘？》<span class="link-mark">↗</span></h3>
+            <p>2026 ChinaJoy 现场直击：观众一句话生成可直接上手的小游戏；玩《双影奇境》卡关，按 F1 即时弹出走位指引；AI 伴玩智能体「星璃」陪聊、讲剧情、剪高光；AI 娱乐主机让体感健身零门槛——同日咪咕发布「AI 智造 · AI 游戏创作计划」产业生态。</p>
+          </div>
+        </a>
+        <a class="media-card" href="https://news.youth.cn/jsxw/202511/t20251124_16367900.htm" target="_blank" rel="noopener">
+          <div class="media-src">
+            <span class="src-badge">工作事迹</span>
+            <span class="src-name">中国青年网</span>
+            <span class="src-date">2025.11</span>
+          </div>
+          <div class="media-body">
+            <h3>《AI 青年不止热爱 | 用 AI 创启无限 智领未来》<span class="link-mark">↗</span></h3>
+            <p>「一个游戏平台如何与 AI 技术深度融合，为用户带来更新潮、便捷的游戏体验？」作为咪咕快游 AI 技术研发人员，张行正与同伴们一起探索作答；报道同期预热动感地带 AI+ 高校创智计划总决赛。</p>
+          </div>
+        </a>
+        <a class="media-card" href="https://www.siat.ac.cn/yxsh/xshd/202412/t20241214_7459159.html" target="_blank" rel="noopener">
+          <div class="media-src">
+            <span class="src-badge">学习阶段</span>
+            <span class="src-name">中科院深圳先进院</span>
+            <span class="src-date">2021.06 · 毕业季</span>
+          </div>
+          <div class="media-body">
+            <h3>《毕业季 · 正青春 | 张行：专心、专注、专业的小行家》<span class="link-mark">↗</span></h3>
+            <p>硕士毕业季专访：于集成所神经工程研究中心师从李光林研究员，研究肌电控制、深度学习与人体运动意图识别；发表 3 篇 SCI，赴 IJCAI、ROBIO 国际会议作报告，并编写 World Scientific 智能感知算法书籍章节。</p>
+          </div>
+        </a>
       </div>
     </section>
 
