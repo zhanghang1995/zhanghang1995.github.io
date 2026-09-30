@@ -370,6 +370,36 @@
     }
     .research-note b { color: var(--ink); }
 
+    /* ---------- 论文分组 / 引用 / 链接 ---------- */
+    .pub-group { margin-top: 34px; }
+    .pub-group-title {
+      font-family: var(--serif);
+      font-size: 16.5px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .pub-group-title .count {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 999px;
+      padding: 1px 10px;
+    }
+    .pub-title a { color: var(--ink); border-bottom: 1px solid #b9cde8; transition: color 0.15s ease; }
+    .pub-title a:hover { color: var(--accent-dark); border-bottom-color: var(--accent-dark); text-decoration: none; }
+    .pub-title .link-mark { color: var(--accent); font-size: 13px; margin-left: 3px; }
+    .pub-cite { font-family: var(--mono); font-size: 12.5px; color: var(--gold); white-space: nowrap; }
+    .pub-cite::before { content: "被引 "; font-family: var(--sans); color: var(--faint); }
+    .scholar-stats { display: flex; gap: 34px; }
+    .scholar-stats > div { text-align: center; }
+    .scholar-stats b { display: block; font-family: var(--serif); font-size: 26px; color: var(--accent); line-height: 1.2; }
+    .scholar-stats span { font-size: 12.5px; color: var(--muted); }
+    @media (max-width: 720px) { .scholar-stats { gap: 20px; } }
+
     /* ---------- 履历时间线 ---------- */
     .timeline { list-style: none; position: relative; padding-left: 26px; }
     .timeline::before {
@@ -486,8 +516,7 @@
           </p>
           <p class="bio">
             长期耕耘<strong>大模型训练与 AIGC 工程化落地</strong>：主导文生图大模型、AI 游戏智能体、多智能体游戏生成引擎等产品从研发到商用，
-            多项功能行业首发；学术方面发表论文 10 篇（含 Nature 子刊 <em>Scientific Data</em>、<em>Neurocomputing</em>、IJCAI 等），
-            出版英文专著 1 部，申请发明专利多项。兴趣横跨<strong>算法研究与工程落地</strong>——既在顶刊顶会发表论文，也让 AI 能力走进千万用户的产品。
+            多项功能行业首发；学术方面发表论文 12 篇（含 Nature 子刊 <em>Scientific Data</em>、IEEE RA-L、<em>Neurocomputing</em> 等），Google Scholar 总引用 400+，出版英文专著 1 部，申请发明专利多项。兴趣横跨<strong>算法研究与工程落地</strong>——既在顶刊顶会发表论文，也让 AI 能力走进千万用户的产品。
           </p>
           <p class="motto">从论文到产品，让大模型真正走进游戏与内容</p>
           <div class="actions">
@@ -500,10 +529,10 @@
       </div>
 
       <div class="stats">
-        <div class="stat"><div class="num">10<small>篇</small></div><div class="lab">学术论文（Nature 子刊 / SCI 一区等）</div></div>
+        <div class="stat"><div class="num">12<small>篇</small></div><div class="lab">学术论文（Nature 子刊 / SCI 期刊等）</div></div>
+        <div class="stat"><div class="num">402</div><div class="lab">Google Scholar 总引用</div></div>
         <div class="stat"><div class="num">1<small>部</small></div><div class="lab">英文学术专著</div></div>
-        <div class="stat"><div class="num">多项</div><div class="lab">发明专利（已申请）</div></div>
-        <div class="stat"><div class="num">多项</div><div class="lab">行业首发的 AI 产品功能</div></div>
+        <div class="stat"><div class="num">多项</div><div class="lab">发明专利 · 行业首发功能</div></div>
         <div class="stat"><div class="num">2000万<small>+</small></div><div class="lab">产品服务用户规模</div></div>
       </div>
     </div>
@@ -641,72 +670,156 @@
     <section id="publications">
       <div class="sec-head">
         <div class="sec-label">Publications</div>
-        <h2>学术成果<span class="en-title">代表性论文 · 学术专著</span></h2>
+        <h2>学术成果<span class="en-title">完整论文列表 · 引用数据</span></h2>
       </div>
 
-      <ol class="pub-list">
-        <li class="pub">
-          <p class="pub-title">Surface electromyogram, kinematic, and kinetic dataset of lower limb walking for movement intent recognition</p>
-          <p class="pub-authors">W. Wei, F. Tan, <span class="me">H. Zhang</span>, et al.</p>
-          <div class="pub-meta">
-            <span class="badge venue">Scientific Data（Nature 子刊）</span>
-            <span class="badge">SCI Q1</span>
-            <span class="pub-year">2023 · 10(1):358</span>
-          </div>
-        </li>
-        <li class="pub">
-          <p class="pub-title">Towards CSI-based diversity activity recognition via LSTM-CNN Encoder-Decoder neural network</p>
-          <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, et al.</p>
-          <div class="pub-meta">
-            <span class="badge venue">Neurocomputing</span>
-            <span class="badge">SCI Q1</span>
-            <span class="badge first">共同一作</span>
-            <span class="pub-year">2020</span>
-          </div>
-        </li>
-        <li class="pub">
-          <p class="pub-title">sEMG-based continuous estimation of grasp movements by long short-term memory network</p>
-          <p class="pub-authors">C. Wang, W. Guo, <span class="me">H. Zhang</span>, et al.</p>
-          <div class="pub-meta">
-            <span class="badge venue">Biomedical Signal Processing and Control</span>
-            <span class="badge">SCI Q2</span>
-            <span class="pub-year">2020 · 59:101774</span>
-          </div>
-        </li>
-        <li class="pub">
-          <p class="pub-title">DFNN-based gesture recognition with the shift and damage of the HD-sEMG electrodes</p>
-          <p class="pub-authors"><span class="me">H. Zhang</span>, C. Wang, W. Guo, et al.</p>
-          <div class="pub-meta">
-            <span class="badge venue">IEEE ROBIO</span>
-            <span class="badge first">第一作者</span>
-            <span class="pub-year">2019</span>
-          </div>
-        </li>
-        <li class="pub">
-          <p class="pub-title">Continuous estimation of grasp movement with sEMG and temporal convolutional nets model</p>
-          <p class="pub-authors"><span class="me">H. Zhang</span>, W. Guo, C. Wang, et al.</p>
-          <div class="pub-meta">
-            <span class="badge venue">IEEE EMBC</span>
-            <span class="badge first">第一作者</span>
-            <span class="pub-year">2019</span>
-          </div>
-        </li>
-        <li class="pub">
-          <p class="pub-title">Towards diversity activity recognition via LSTM CNN Encoder-Decoder neural network</p>
-          <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, L. Wang</p>
-          <div class="pub-meta">
-            <span class="badge venue">IJCAI Workshop</span>
-            <span class="badge first">共同一作</span>
-            <span class="pub-year">2019</span>
-          </div>
-        </li>
-      </ol>
-      <p class="pub-note">† 共同第一作者 · 完整论文与英文专著列表请见 Google Scholar。</p>
+      <div class="pub-group">
+        <div class="pub-group-title">期刊论文<span class="count">6 篇 · 按被引排序</span></div>
+        <ol class="pub-list">
+          <li class="pub" data-pub-id="ra-l-bilstm-2021">
+            <p class="pub-title">A bi-directional LSTM network for estimating continuous upper limb movement from surface electromyography</p>
+            <p class="pub-authors">C. Ma, C. Lin, O. W. Samuel, W. Guo, <span class="me">H. Zhang</span>, S. Greenwald, L. Xu, G. Li</p>
+            <div class="pub-meta">
+              <span class="badge venue">IEEE Robotics and Automation Letters（RA-L）</span>
+              <span class="badge">SCI 期刊</span>
+              <span class="pub-cite">113</span>
+              <span class="pub-year">2021 · 6(4): 7217–7224</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="bspc-lstm-2020">
+            <p class="pub-title">sEMG-based continuous estimation of grasp movements by long short-term memory network</p>
+            <p class="pub-authors">C. Wang, W. Guo, <span class="me">H. Zhang</span>, L. Guo, C. Huang, C. Lin</p>
+            <div class="pub-meta">
+              <span class="badge venue">Biomedical Signal Processing and Control</span>
+              <span class="badge">SCI Q2</span>
+              <span class="pub-cite">91</span>
+              <span class="pub-year">2020 · 59: 101774</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="scidata-walking-2023">
+            <p class="pub-title">Surface electromyogram, kinematic, and kinetic dataset of lower limb walking for movement intent recognition</p>
+            <p class="pub-authors">W. Wei, F. Tan, <span class="me">H. Zhang</span>, H. Mao, M. Fu, O. W. Samuel, G. Li</p>
+            <div class="pub-meta">
+              <span class="badge venue">Scientific Data</span>
+              <span class="badge">Nature 子刊 · SCI Q1</span>
+              <span class="pub-cite">67</span>
+              <span class="pub-year">2023 · 10(1): 358</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="jne-lemc-2021">
+            <p class="pub-title">Long exposure convolutional memory network for accurate estimation of finger kinematics from surface electromyographic signals</p>
+            <p class="pub-authors">W. Guo, C. Ma, Z. Wang, <span class="me">H. Zhang</span>, D. Farina, N. Jiang, C. Lin</p>
+            <div class="pub-meta">
+              <span class="badge venue">Journal of Neural Engineering</span>
+              <span class="badge">SCI 期刊</span>
+              <span class="pub-cite">54</span>
+              <span class="pub-year">2021 · 18(2): 026027</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="ra-l-feature-2021">
+            <p class="pub-title">A novel and efficient feature extraction method for deep learning based continuous estimation</p>
+            <p class="pub-authors">C. Ma, W. Guo, <span class="me">H. Zhang</span>, O. W. Samuel, X. Ji, L. Xu, G. Li</p>
+            <div class="pub-meta">
+              <span class="badge venue">IEEE Robotics and Automation Letters（RA-L）</span>
+              <span class="badge">SCI 期刊</span>
+              <span class="pub-cite">41</span>
+              <span class="pub-year">2021 · 6(4): 7341–7348</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="neurocomputing-2020">
+            <p class="pub-title">Towards CSI-based diversity activity recognition via LSTM-CNN Encoder-Decoder neural network</p>
+            <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, et al.</p>
+            <div class="pub-meta">
+              <span class="badge venue">Neurocomputing</span>
+              <span class="badge">SCI Q1</span>
+              <span class="badge first">共同一作</span>
+              <span class="pub-cite">32</span>
+              <span class="pub-year">2020</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pub-group">
+        <div class="pub-group-title">会议论文<span class="count">5 篇</span></div>
+        <ol class="pub-list">
+          <li class="pub" data-pub-id="robio-2019">
+            <p class="pub-title">DFNN-based gesture recognition with the shift and damage of the HD-sEMG electrodes</p>
+            <p class="pub-authors"><span class="me">H. Zhang</span>, C. Wang, W. Guo, L. Guo, C. Lin</p>
+            <div class="pub-meta">
+              <span class="badge venue">IEEE ROBIO</span>
+              <span class="badge first">第一作者</span>
+              <span class="pub-cite">4</span>
+              <span class="pub-year">2019</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="ijcai-w-2019">
+            <p class="pub-title">Towards diversity activity recognition via LSTM CNN Encoder-Decoder neural network</p>
+            <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, L. Wang</p>
+            <div class="pub-meta">
+              <span class="badge venue">IJCAI 2019 · Workshop</span>
+              <span class="badge first">共同一作</span>
+              <span class="pub-year">2019</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="embc-grasp-2019">
+            <p class="pub-title">Continuous estimation of grasp movement with sEMG and temporal convolutional nets model</p>
+            <p class="pub-authors"><span class="me">H. Zhang</span>, W. Guo, C. Wang, C. Lin, L. Li, X. Huang</p>
+            <div class="pub-meta">
+              <span class="badge venue">IEEE EMBC</span>
+              <span class="badge first">第一作者</span>
+              <span class="pub-year">2019</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="embc-joints-2019">
+            <p class="pub-title">Continuous upper limb joint angles estimation with sEMG signals based on TCN</p>
+            <p class="pub-authors"><span class="me">H. Zhang</span>, C. Ma</p>
+            <div class="pub-meta">
+              <span class="badge venue">IEEE EMBC</span>
+              <span class="badge first">第一作者</span>
+              <span class="pub-year">2019 · Poster</span>
+            </div>
+          </li>
+          <li class="pub" data-pub-id="ccrs-dlgc-2019">
+            <p class="pub-title">基于 DLGC 神经网络的手势识别中高密度电极的时空特性变换的研究</p>
+            <p class="pub-authors"><span class="me">张行</span>, 林闯, 王超, 郭伟钰</p>
+            <div class="pub-meta">
+              <span class="badge venue">中国机器人学术年会（CCRS）</span>
+              <span class="badge">中文</span>
+              <span class="badge first">第一作者</span>
+              <span class="pub-year">2019 · Poster</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pub-group">
+        <div class="pub-group-title">学术专著<span class="count">1 部</span></div>
+        <ol class="pub-list">
+          <li class="pub" data-pub-id="book-wifi-dl-2021">
+            <p class="pub-title">Deep Learning for Device-free Human Activity Recognition Using WiFi Signals</p>
+            <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>, W. Guo, J. Fang, B. Lu, C. Ma, G. Li, C. Lin, L. Wang</p>
+            <div class="pub-meta">
+              <span class="badge venue">Generalization with Deep Learning</span>
+              <span class="badge">英文学术专著（章节）</span>
+              <span class="pub-year">2021</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <p class="pub-note">† 共同第一作者 · 被引数据来自 Google Scholar（截至 2026.09）· 论文原文链接补充中</p>
 
       <div class="scholar-banner">
         <div class="txt">
           <b>🎓 Google Scholar 学术主页</b>
-          <p>查看全部论文、引用与 h 指数（含肌电手势识别、WiFi 感知动作识别等方向）</p>
+          <p>含肌电手势识别、WiFi 感知动作识别、多模态学习等方向 · 数据截至 2026.09</p>
+        </div>
+        <div class="scholar-stats">
+          <div><b>402</b><span>总引用</span></div>
+          <div><b>6</b><span>h-index</span></div>
+          <div><b>6</b><span>i10-index</span></div>
+          <div><b>12</b><span>学术成果</span></div>
         </div>
         <a class="btn btn-solid" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">前往学术主页 ↗</a>
       </div>
@@ -791,6 +904,41 @@
       </div>
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       论文原文链接配置区（人工维护）PAPER_LINKS
+       · 每行 key 对应一篇论文：把 DOI / 出版社 / arXiv 等网址填入引号内
+       · 填写后该论文标题自动变为可点击链接（新窗口打开），留空则保持纯文本
+       示例：  "ra-l-bilstm-2021": "https://doi.org/10.1109/LRA.2021.309xxxx",
+  ═══════════════════════════════════════════════════════════════════ -->
+  <script>
+    var PAPER_LINKS = {
+      /* ----- 期刊论文 ----- */
+      "ra-l-bilstm-2021":     "", // A bi-directional LSTM network...（IEEE RA-L 2021 · 被引 113）
+      "bspc-lstm-2020":       "", // sEMG-based continuous estimation of grasp movements（BSPC 2020 · 被引 91）
+      "scidata-walking-2023": "", // Surface electromyogram...lower limb walking（Scientific Data 2023 · 被引 67）
+      "jne-lemc-2021":        "", // Long exposure convolutional memory network（J. Neural Eng. 2021 · 被引 54）
+      "ra-l-feature-2021":    "", // A novel and efficient feature extraction method（IEEE RA-L 2021 · 被引 41）
+      "neurocomputing-2020":  "", // Towards CSI-based diversity activity recognition（Neurocomputing 2020 · 共同一作）
+      /* ----- 会议论文 ----- */
+      "robio-2019":           "", // DFNN-based gesture recognition（IEEE ROBIO 2019 · 一作）
+      "ijcai-w-2019":         "", // Towards diversity activity recognition（IJCAI 2019 Workshop · 共同一作）
+      "embc-grasp-2019":      "", // Continuous estimation of grasp movement...TCN（IEEE EMBC 2019 · 一作）
+      "embc-joints-2019":     "", // Continuous upper limb joint angles estimation（IEEE EMBC 2019 · 一作）
+      "ccrs-dlgc-2019":       "", // 基于DLGC神经网络的...时空特性变换（CCRS 2019 · 中文）
+      /* ----- 学术专著 ----- */
+      "book-wifi-dl-2021":    ""  // Deep Learning for Device-free HAR Using WiFi Signals（专著章节 2021）
+    };
+    (function () {
+      document.querySelectorAll(".pub[data-pub-id]").forEach(function (el) {
+        var url = (PAPER_LINKS[el.getAttribute("data-pub-id")] || "").trim();
+        if (!url) return;
+        var t = el.querySelector(".pub-title");
+        if (!t || t.querySelector("a")) return;
+        t.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener">' + t.textContent + '<span class="link-mark">↗</span></a>';
+      });
+    })();
+  </script>
 
 </body>
 </html>
