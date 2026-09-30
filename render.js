@@ -29,8 +29,11 @@
     if (!el) return;
 
     var links = profile.links.map(function (l) {
+      var isMail = l.href.indexOf("mailto:") === 0;
+      /* print-email：屏幕隐藏，仅打印 / PDF 中显示邮箱地址 */
+      var extra = isMail ? '<span class="print-email">（' + l.href.replace("mailto:", "") + "）</span>" : "";
       return '<a class="btn ' + (l.primary ? "btn-solid" : "btn-outline") + '" href="' + l.href + '"' +
-             (l.href.indexOf("mailto:") === 0 ? "" : ' target="_blank" rel="noopener"') + '>' + l.text + "</a>";
+             (isMail ? "" : ' target="_blank" rel="noopener"') + ">" + l.text + extra + "</a>";
     }).join("\n            ");
 
     var metaHtml = profile.meta.join('<span class="sep">·</span>');

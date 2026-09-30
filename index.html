@@ -616,16 +616,36 @@
     }
 
     /* ---------- 打印 / 导出 PDF（点击导航「导出 PDF」后在打印对话框选择“存储为 PDF”） ---------- */
+    @page { size: A4; margin: 12mm 11mm; }
+    .print-email { display: none; }
+
     @media print {
       .topbar { display: none; }
       body { background: #fff; font-size: 13px; }
+
+      /* 多列布局降级为单列块级流：规避 Safari / Chrome 打印 grid、flex 容器跨页时内容被截断 */
+      .interest-grid, .proj-grid, .honor-grid, .media-list,
+      .media-card, .scholar-banner { display: block; }
+      .interest, .proj, .honor, .media-card { margin-bottom: 10px; }
+      .media-src {
+        flex: none;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .scholar-banner .txt { margin-bottom: 10px; }
+      .scholar-banner .btn { display: inline-block; margin-top: 10px; }
+      .stats { grid-template-columns: repeat(5, 1fr); }
+
       header.hero {
         border-top: 3px solid var(--accent);
         background: none;
       }
-      .hero-inner { padding: 26px 0 20px; }
+      .hero-inner { padding: 20px 0 16px; }
       .container { max-width: 100%; }
-      section { margin-top: 26px; }
+      section { margin-top: 24px; }
       .scholar-banner, .research-note, .stats,
       .interest, .proj, .pub, .honor, .media-card, .tl-item {
         break-inside: avoid;
@@ -637,6 +657,8 @@
       }
       a { color: var(--ink); text-decoration: none; }
       .btn-outline { border: 1px solid #c5d6ee; }
+      .link-mark { display: none; }
+      .print-email { display: inline; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
