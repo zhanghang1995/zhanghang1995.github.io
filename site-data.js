@@ -30,7 +30,7 @@ var SITE_DATA = {
     roleSub: "原华为盘古大模型团队 · 高级算法工程师",
     meta: ["中国科学院大学 · 计算机技术硕士", "中科院深圳先进技术研究院科研经历"],
     bio: "长期耕耘<strong>大模型训练与 AIGC 工程化落地</strong>：主导文生图大模型、AI 游戏智能体、多智能体游戏生成引擎等产品从研发到商用，多项功能行业首发；学术方面发表论文 12 篇（含 <em>Scientific Data</em>、IEEE RA-L、<em>Neurocomputing</em> 等），Google Scholar 总引用 400+，出版英文专著 1 部，申请发明专利多项。兴趣横跨<strong>算法研究与工程落地</strong>——既在顶刊顶会发表论文，也让 AI 能力走进千万用户的产品。",
-    motto: "从论文到产品，让大模型真正走进游戏与内容",
+    motto: "从论文到产品，让大模型真正走进用户",
     links: [
       { text: "🎓 Google Scholar 学术主页", href: "https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en", primary: true },
       { text: "GitHub", href: "https://github.com/zhanghang1995" },
@@ -42,7 +42,7 @@ var SITE_DATA = {
   stats: [
     { num: "12",     unit: "篇", label: "学术论文（SCI 期刊 / 国际会议）" },
     { num: "402",    unit: "",   label: "Google Scholar 总引用" },
-    { num: "1",      unit: "部", label: "英文学术专著" },
+    { num: "1",      unit: "部", label: "英文国际学术专著" },
     { num: "多项",   unit: "",   label: "发明专利 · 行业首发功能" },
     { num: "2000万", unit: "+",  label: "产品服务用户规模" }
   ],
@@ -53,7 +53,7 @@ var SITE_DATA = {
       icon: "🧠",
       title: "大语言模型与后训练",
       desc: "指令微调（Full / LoRA SFT）与强化学习（RLHF / DPO / RAFT / ReFL），具备 7B–14B 垂域模型从数据构建到部署的完整后训练经验。",
-      chips: ["SFT", "RLHF / DPO", "LoRA", "Qwen3-14B"]
+      chips: ["SFT", "RLHF / DPO", "LoRA", "Qwen等"]
     },
     {
       icon: "🎨",
