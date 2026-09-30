@@ -12,8 +12,16 @@
   <meta property="og:url" content="https://zhanghang1995.github.io/">
   <meta property="og:site_name" content="张行 Zhang Hang">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:description" content="工程 × 学术：大模型后训练、文生图、多模态、AI Agent。论文 10 篇（含 Nature 子刊 Scientific Data、Neurocomputing、IJCAI），英文专著 1 部。">
+  <meta property="og:description" content="工程 × 学术：大模型后训练、文生图、多模态、AI Agent。论文 12 篇（含 Scientific Data、IEEE RA-L、Neurocomputing 等），英文专著 1 部。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%231554a3'/%3E%3Ctext%20x='32'%20y='45'%20font-size='34'%20font-family='Georgia,Songti%20SC,serif'%20fill='%23ffffff'%20text-anchor='middle'%3E%E8%A1%8C%3C/text%3E%3C/svg%3E">
+  <!--
+    ─────────────────────────────────────────────────────────
+    本页面为骨架文件：内容与样式分离，日常更新无需改动本文件。
+      · 内容更新 → 编辑 site-data.js（简介/项目/论文/荣誉/报道）
+      · 论文链接 → 编辑 papers.js
+      · 渲染逻辑 → render.js
+    ─────────────────────────────────────────────────────────
+  -->
   <style>
     :root {
       --bg: #f7f9fc;
@@ -27,6 +35,8 @@
       --gold: #a16207;
       --gold-light: #fdf6e3;
       --line: #e3e8ee;
+      --hover-bg: #f0f6fd;
+      --hover-border: #c9daf0;
       --serif: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", "SimSun", serif;
       --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       --mono: "SF Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
@@ -95,6 +105,7 @@
       font-size: 14px;
       padding: 6px 12px;
       border-radius: 6px;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--accent-dark); background: var(--accent-light); text-decoration: none; }
     .nav-scholar {
@@ -151,6 +162,21 @@
       color: var(--faint);
       margin-left: 10px;
       letter-spacing: 0.5px;
+    }
+    .nickname {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 12px;
+      transform: translateY(-4px);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--accent-dark);
+      background: var(--accent-light);
+      border: 1px solid #c9d8ec;
+      border-radius: 999px;
+      padding: 3px 12px;
     }
     .role { margin-top: 8px; font-size: 15.5px; color: var(--ink); }
     .role strong { color: var(--accent-dark); font-weight: 600; }
@@ -252,9 +278,17 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 22px 24px;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      transition: box-shadow 0.2s ease, transform 0.2s ease,
+                  background-color 0.25s ease, border-color 0.25s ease;
     }
-    .interest:hover { box-shadow: 0 8px 26px rgba(28, 43, 58, 0.08); transform: translateY(-2px); }
+    .interest:hover {
+      background: var(--hover-bg);
+      border-color: var(--hover-border);
+      box-shadow: 0 8px 26px rgba(21, 84, 163, 0.12);
+      transform: translateY(-2px);
+    }
+    .interest:hover h3 { color: var(--accent-dark); }
+    .interest:hover p { color: #33465a; }
     .interest h3 {
       font-family: var(--serif);
       font-size: 17.5px;
@@ -300,9 +334,17 @@
       padding: 22px 24px;
       display: flex;
       flex-direction: column;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      transition: box-shadow 0.2s ease, transform 0.2s ease,
+                  background-color 0.25s ease, border-color 0.25s ease;
     }
-    .proj:hover { box-shadow: 0 8px 26px rgba(28, 43, 58, 0.08); transform: translateY(-2px); }
+    .proj:hover {
+      background: var(--hover-bg);
+      border-color: var(--hover-border);
+      box-shadow: 0 8px 26px rgba(21, 84, 163, 0.12);
+      transform: translateY(-2px);
+    }
+    .proj:hover h3 { color: var(--accent-dark); }
+    .proj:hover li { color: #33465a; }
     .proj-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .tag {
       font-size: 12px;
@@ -318,7 +360,6 @@
     .proj li { font-size: 13.8px; color: #44566b; margin-top: 6px; line-height: 1.8; }
     .proj li::marker { color: var(--accent); }
     .impact {
-      margin-top: auto;
       padding-top: 14px;
       margin-top: 16px;
       border-top: 1px dashed var(--line);
@@ -336,9 +377,16 @@
       border-left: 3px solid var(--accent);
       border-radius: 10px;
       padding: 16px 20px;
-      transition: box-shadow 0.2s ease;
+      transition: box-shadow 0.2s ease, background-color 0.25s ease, border-color 0.25s ease;
     }
-    .pub:hover { box-shadow: 0 6px 20px rgba(28, 43, 58, 0.07); }
+    .pub:hover {
+      background: var(--hover-bg);
+      border-color: var(--hover-border);
+      border-left-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(21, 84, 163, 0.10);
+    }
+    .pub:hover .pub-title { color: var(--accent-dark); }
+    .pub:hover .pub-authors { color: #4a5a6b; }
     .pub-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.6; }
     .pub-authors { margin-top: 4px; font-size: 13px; color: var(--muted); font-style: italic; }
     .pub-authors .me { color: var(--accent-dark); font-weight: 600; font-style: normal; }
@@ -356,32 +404,6 @@
     .pub-year { font-family: var(--mono); font-size: 12.5px; color: var(--faint); margin-left: auto; }
     .pub-note { margin-top: 6px; font-size: 12.5px; color: var(--faint); }
 
-    .scholar-banner {
-      margin-top: 22px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      background: linear-gradient(120deg, #f3f7fc 0%, #eaf1fa 100%);
-      border: 1px solid #d5e2f2;
-      border-radius: 12px;
-      padding: 18px 24px;
-    }
-    .scholar-banner .txt { flex: 1 1 260px; }
-    .scholar-banner .txt b { font-family: var(--serif); font-size: 16px; }
-    .scholar-banner .txt p { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
-    .research-note {
-      margin-top: 22px;
-      font-size: 13.8px;
-      color: var(--muted);
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 14px 20px;
-    }
-    .research-note b { color: var(--ink); }
-
-    /* ---------- 论文分组 / 引用 / 链接 ---------- */
     .pub-group { margin-top: 34px; }
     .pub-group-title {
       font-family: var(--serif);
@@ -410,6 +432,31 @@
     .scholar-stats b { display: block; font-family: var(--serif); font-size: 26px; color: var(--accent); line-height: 1.2; }
     .scholar-stats span { font-size: 12.5px; color: var(--muted); }
     @media (max-width: 720px) { .scholar-stats { gap: 20px; } }
+
+    .scholar-banner {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: linear-gradient(120deg, #f3f7fc 0%, #eaf1fa 100%);
+      border: 1px solid #d5e2f2;
+      border-radius: 12px;
+      padding: 18px 24px;
+    }
+    .scholar-banner .txt { flex: 1 1 260px; }
+    .scholar-banner .txt b { font-family: var(--serif); font-size: 16px; }
+    .scholar-banner .txt p { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+    .research-note {
+      margin-top: 22px;
+      font-size: 13.8px;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 20px;
+    }
+    .research-note b { color: var(--ink); }
 
     /* ---------- 履历时间线 ---------- */
     .timeline { list-style: none; position: relative; padding-left: 26px; }
@@ -458,7 +505,17 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       padding: 22px 24px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease,
+                  background-color 0.25s ease, border-color 0.25s ease;
     }
+    .honor:hover {
+      background: var(--hover-bg);
+      border-color: var(--hover-border);
+      box-shadow: 0 8px 26px rgba(21, 84, 163, 0.12);
+      transform: translateY(-2px);
+    }
+    .honor:hover h3 { color: var(--accent-dark); }
+    .honor:hover li { color: #33465a; }
     .honor h3 { font-family: var(--serif); font-size: 16.5px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
     .honor ul { list-style: none; margin-top: 6px; }
     .honor li {
@@ -483,9 +540,18 @@
       border-radius: 12px;
       padding: 20px 24px;
       color: inherit;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      transition: box-shadow 0.2s ease, transform 0.2s ease,
+                  background-color 0.25s ease, border-color 0.25s ease;
     }
-    .media-card:hover { box-shadow: 0 8px 26px rgba(28, 43, 58, 0.08); transform: translateY(-2px); text-decoration: none; }
+    .media-card:hover {
+      background: var(--hover-bg);
+      border-color: var(--hover-border);
+      box-shadow: 0 8px 26px rgba(21, 84, 163, 0.12);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .media-card:hover .src-name { color: var(--accent-dark); }
+    .media-card:hover .media-body p { color: #33465a; }
     .media-src {
       flex: 0 0 150px;
       display: flex;
@@ -532,12 +598,14 @@
       .stats .stat:last-child { grid-column: 1 / -1; }
       section { margin-top: 48px; }
       .pub-year { margin-left: 0; }
+      .media-card { flex-direction: column; gap: 10px; }
+      .media-src { flex-basis: auto; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 10px; }
     }
   </style>
 </head>
 <body id="top">
 
-  <!-- 顶部导航 -->
+  <!-- 顶部导航（锚点固定） -->
   <nav class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#top">张行<em>Zhang Hang</em></a>
@@ -553,439 +621,13 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- 首屏（内容由 site-data.js + render.js 动态渲染） -->
   <header class="hero">
-    <div class="container hero-inner">
-      <div class="hero-grid">
-        <div class="avatar">行</div>
-        <div class="hero-main">
-          <h1 class="name">张行<span class="en">Zhang Hang</span></h1>
-          <p class="role">
-            <strong>中国移动咪咕公司 · AI 团队负责人 / AI 算法总监</strong>
-            <span class="sep">|</span>原华为盘古大模型团队 · 高级算法工程师
-          </p>
-          <p class="meta">
-            中国科学院大学 · 计算机技术硕士<span class="sep">·</span>中国科学院深圳先进技术研究院科研经历
-          </p>
-          <p class="bio">
-            长期耕耘<strong>大模型训练与 AIGC 工程化落地</strong>：主导文生图大模型、AI 游戏智能体、多智能体游戏生成引擎等产品从研发到商用，
-            多项功能行业首发；学术方面发表论文 12 篇（含 Nature 子刊 <em>Scientific Data</em>、IEEE RA-L、<em>Neurocomputing</em> 等），Google Scholar 总引用 400+，出版英文专著 1 部，申请发明专利多项。兴趣横跨<strong>算法研究与工程落地</strong>——既在顶刊顶会发表论文，也让 AI 能力走进千万用户的产品。
-          </p>
-          <p class="motto">从论文到产品，让大模型真正走进游戏与内容</p>
-          <div class="actions">
-            <a class="btn btn-solid" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">🎓 Google Scholar 学术主页</a>
-            <a class="btn btn-outline" href="https://github.com/zhanghang1995" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn btn-outline" href="mailto:zh749931552@gmail.com">✉️ Email</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats">
-        <div class="stat"><div class="num">12<small>篇</small></div><div class="lab">学术论文（Nature 子刊 / SCI 期刊等）</div></div>
-        <div class="stat"><div class="num">402</div><div class="lab">Google Scholar 总引用</div></div>
-        <div class="stat"><div class="num">1<small>部</small></div><div class="lab">英文学术专著</div></div>
-        <div class="stat"><div class="num">多项</div><div class="lab">发明专利 · 行业首发功能</div></div>
-        <div class="stat"><div class="num">2000万<small>+</small></div><div class="lab">产品服务用户规模</div></div>
-      </div>
-    </div>
+    <div class="container hero-inner" id="hero"></div>
   </header>
 
-  <!-- 主要内容 -->
-  <main class="container">
-
-    <!-- 研究方向 -->
-    <section id="research">
-      <div class="sec-head">
-        <div class="sec-label">Research Interests</div>
-        <h2>研究方向<span class="en-title">算法研究 × 工程实践</span></h2>
-      </div>
-      <div class="interest-grid">
-        <div class="interest">
-          <h3><span class="ico">🧠</span>大语言模型与后训练</h3>
-          <p>指令微调（Full / LoRA SFT）与强化学习（RLHF / DPO / RAFT / ReFL），具备 7B–14B 垂域模型从数据构建到部署的完整后训练经验。</p>
-          <div class="chips">
-            <span class="chip">SFT</span><span class="chip">RLHF / DPO</span><span class="chip">LoRA</span><span class="chip">Qwen3-14B</span>
-          </div>
-        </div>
-        <div class="interest">
-          <h3><span class="ico">🎨</span>图像与视频生成</h3>
-          <p>SD / DiT 架构的文生图与文生视频模型：大规模数据构建（Recaption、自动化标注）、预训练与强化学习优化、风格与主体一致性控制。</p>
-          <div class="chips">
-            <span class="chip">Stable Diffusion</span><span class="chip">DiT</span><span class="chip">DreamBooth</span><span class="chip">ComfyUI</span>
-          </div>
-        </div>
-        <div class="interest">
-          <h3><span class="ico">👁️</span>多模态与视觉识别</h3>
-          <p>CLIP / SigLip2 多模态向量模型的预训练与对比学习微调；YOLO、RTMPose 等视觉识别模型的算法优化与端侧落地。</p>
-          <div class="chips">
-            <span class="chip">CLIP / SigLip2</span><span class="chip">对比学习</span><span class="chip">YOLO</span><span class="chip">RTMPose</span>
-          </div>
-        </div>
-        <div class="interest">
-          <h3><span class="ico">🤖</span>Agent 与大规模训练</h3>
-          <p>基于 Harness 架构的多智能体协同生成；DeepSpeed 训练优化，GPU / Ascend NPU 下百亿级数据与参数量的稳定训练调优。</p>
-          <div class="chips">
-            <span class="chip">Multi-Agent</span><span class="chip">LangGraph / MCP</span><span class="chip">DeepSpeed</span><span class="chip">Ascend NPU</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 工程实践 -->
-    <section id="engineering">
-      <div class="sec-head">
-        <div class="sec-label">Engineering</div>
-        <h2>工程实践<span class="en-title">从算法研究到亿级调用的产品落地</span></h2>
-      </div>
-      <div class="proj-grid">
-
-        <article class="proj">
-          <div class="proj-top">
-            <span class="tag">中国移动咪咕 · 2024 – 至今</span><span class="tag gold">全网上线</span>
-          </div>
-          <h3>多智能体协同的 AI 游戏生成引擎「咪咕智造」</h3>
-          <ul>
-            <li>基于 Claude Code CLI 搭建游戏创作后端服务，研发游戏 Skill、MCP 等工具链，实现<strong>一句话生成游戏、多轮对话编辑</strong>；</li>
-            <li>微调 GDD 生成模型（Qwen3-14B），构建「意图 → 策划 → 模板」自动化工作流，创作效率提升 <strong>2–3 倍</strong>。</li>
-          </ul>
-          <p class="impact">日均 Token 消耗超 <strong>10 亿</strong> · 上线 1 月生产游戏 <strong>4000+</strong> 款 · 覆盖用户 <strong>20 万+</strong></p>
-        </article>
-
-        <article class="proj">
-          <div class="proj-top">
-            <span class="tag">中国移动咪咕 · 2024 – 至今</span><span class="tag gold">多项行业首发</span>
-          </div>
-          <h3>AI 游戏智能体（搜索 / 问答 / 攻略 / 伴玩 / 回帖）</h3>
-          <ul>
-            <li>构建十万级意图数据，Full / LoRA 微调 7B 模型，意图识别精度达 <strong>97%</strong>；</li>
-            <li>SigLip2 预训练 + 对比学习迭代，视频卡关检测精度 <strong>95%</strong>、误差控制在 <strong>10s</strong> 内；</li>
-            <li>AI 伴玩覆盖游戏 <strong>1000+</strong> 款；AI 攻略行业首发应用于《双影奇境》《拳皇 15》。</li>
-          </ul>
-          <p class="impact">日均 Token 消耗超 <strong>3 亿</strong> · 上线 1 年服务用户 <strong>100 万+</strong></p>
-        </article>
-
-        <article class="proj">
-          <div class="proj-top">
-            <span class="tag">中国移动咪咕 · 2024 – 至今</span><span class="tag gold">商业化落地</span>
-          </div>
-          <h3>AIGC 体感健身内容生产与交互</h3>
-          <ul>
-            <li>SD / DiT 图像生成模型训练，LoRA 与概念学习实现多主体风格一致性；</li>
-            <li>十万级人体动作数据，优化 YOLO / RTMPose，攻克弱光、复杂背景识别，精度 <strong>95%+</strong>，支持 12 类动作；</li>
-            <li>基于 ComfyUI 搭建「文本 → 图像 / 视频」内容生产管线。</li>
-          </ul>
-          <p class="impact">服务用户超 <strong>2000 万</strong> · 拓展收入 <strong>1500 万</strong></p>
-        </article>
-
-        <article class="proj">
-          <div class="proj-top">
-            <span class="tag">华为 · 盘古大模型团队 · 2021 – 2024</span>
-          </div>
-          <h3>华为自研文生图大模型与 AIGC 广告搜推</h3>
-          <ul>
-            <li>主导 EDD 架构（3B）人像专项优化，构建 SFT / RLHF 范式，多阶段强化策略（RAFT / DPO / ReFL + 概念学习 + 连续学习）；</li>
-            <li>主导 Diffusion 底座训练：百亿级数据与参数量，分阶段训练与 Recaption 数据策略；</li>
-            <li>多模态 Embedding（文 / 视 / 图）：关键词精度 +5%、打标 +4%，带动 ECPM 显著提升。</li>
-          </ul>
-          <p class="impact">商用发布华为 <strong>P70 / 鸿蒙 NEXT</strong> · 覆盖数千万台设备 · 广告向量模型带动千万美金级年收入</p>
-        </article>
-
-        <article class="proj">
-          <div class="proj-top">
-            <span class="tag">华为 · 2021 – 2024</span><span class="tag gold">业界首发</span>
-          </div>
-          <h3>大屏隔空手势交互算法</h3>
-          <ul>
-            <li>构建 600 万+ 样本多任务数据平台（检测 / 分类 / 跟踪），数据生产效率提升 <strong>80%</strong>；</li>
-            <li>改进 MobileNet V3 + NanoDet：Focal Loss 解样本不均衡，Teacher-Student 蒸馏在精度损失 &lt;1% 下提速 <strong>30%+</strong>，端到端召回 +20%。</li>
-          </ul>
-          <p class="impact">落地 <strong>IdeaHub 及鸿蒙生态</strong> · 赋能 P / Mate 旗舰系列</p>
-        </article>
-
-        <article class="proj">
-          <div class="proj-top">
-            <span class="tag">华为 · 2021 – 2024</span><span class="tag gold">产品线部长奖</span>
-          </div>
-          <h3>IMU 主动笔与 N2N 投屏时延优化</h3>
-          <ul>
-            <li>优化后 Mahony 算法：动态累计误差清零 + 自适应显控比，误差 <strong>&lt;10°/h</strong>（申请专利）；</li>
-            <li>YOLOv3 + 卡尔曼滤波笔尖实时检测，算法集成 HiSilicon DSP 芯片；</li>
-            <li>基于 LSTM 的动态缓存机制，投屏时延降低 <strong>20%</strong>。</li>
-          </ul>
-          <p class="impact">助力 <strong>IdeaHub S2</strong> 新品发布 · 落地鸿蒙空鼠与投屏方案</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- 学术成果 -->
-    <section id="publications">
-      <div class="sec-head">
-        <div class="sec-label">Publications</div>
-        <h2>学术成果<span class="en-title">完整论文列表 · 引用数据</span></h2>
-      </div>
-
-      <div class="pub-group">
-        <div class="pub-group-title">期刊论文<span class="count">6 篇 · 按被引排序</span></div>
-        <ol class="pub-list">
-          <li class="pub" data-pub-id="ra-l-bilstm-2021">
-            <p class="pub-title">A bi-directional LSTM network for estimating continuous upper limb movement from surface electromyography</p>
-            <p class="pub-authors">C. Ma, C. Lin, O. W. Samuel, W. Guo, <span class="me">H. Zhang</span>, S. Greenwald, L. Xu, G. Li</p>
-            <div class="pub-meta">
-              <span class="badge venue">IEEE Robotics and Automation Letters（RA-L）</span>
-              <span class="badge">SCI 期刊</span>
-              <span class="pub-cite">113</span>
-              <span class="pub-year">2021 · 6(4): 7217–7224</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="bspc-lstm-2020">
-            <p class="pub-title">sEMG-based continuous estimation of grasp movements by long short-term memory network</p>
-            <p class="pub-authors">C. Wang, W. Guo, <span class="me">H. Zhang</span>, L. Guo, C. Huang, C. Lin</p>
-            <div class="pub-meta">
-              <span class="badge venue">Biomedical Signal Processing and Control</span>
-              <span class="badge">SCI Q2</span>
-              <span class="pub-cite">91</span>
-              <span class="pub-year">2020 · 59: 101774</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="scidata-walking-2023">
-            <p class="pub-title">Surface electromyogram, kinematic, and kinetic dataset of lower limb walking for movement intent recognition</p>
-            <p class="pub-authors">W. Wei, F. Tan, <span class="me">H. Zhang</span>, H. Mao, M. Fu, O. W. Samuel, G. Li</p>
-            <div class="pub-meta">
-              <span class="badge venue">Scientific Data</span>
-              <span class="badge">Nature 子刊 · SCI Q1</span>
-              <span class="pub-cite">67</span>
-              <span class="pub-year">2023 · 10(1): 358</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="jne-lemc-2021">
-            <p class="pub-title">Long exposure convolutional memory network for accurate estimation of finger kinematics from surface electromyographic signals</p>
-            <p class="pub-authors">W. Guo, C. Ma, Z. Wang, <span class="me">H. Zhang</span>, D. Farina, N. Jiang, C. Lin</p>
-            <div class="pub-meta">
-              <span class="badge venue">Journal of Neural Engineering</span>
-              <span class="badge">SCI 期刊</span>
-              <span class="pub-cite">54</span>
-              <span class="pub-year">2021 · 18(2): 026027</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="ra-l-feature-2021">
-            <p class="pub-title">A novel and efficient feature extraction method for deep learning based continuous estimation</p>
-            <p class="pub-authors">C. Ma, W. Guo, <span class="me">H. Zhang</span>, O. W. Samuel, X. Ji, L. Xu, G. Li</p>
-            <div class="pub-meta">
-              <span class="badge venue">IEEE Robotics and Automation Letters（RA-L）</span>
-              <span class="badge">SCI 期刊</span>
-              <span class="pub-cite">41</span>
-              <span class="pub-year">2021 · 6(4): 7341–7348</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="neurocomputing-2020">
-            <p class="pub-title">Towards CSI-based diversity activity recognition via LSTM-CNN Encoder-Decoder neural network</p>
-            <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, et al.</p>
-            <div class="pub-meta">
-              <span class="badge venue">Neurocomputing</span>
-              <span class="badge">SCI Q1</span>
-              <span class="badge first">共同一作</span>
-              <span class="pub-cite">32</span>
-              <span class="pub-year">2020</span>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <div class="pub-group">
-        <div class="pub-group-title">会议论文<span class="count">5 篇</span></div>
-        <ol class="pub-list">
-          <li class="pub" data-pub-id="robio-2019">
-            <p class="pub-title">DFNN-based gesture recognition with the shift and damage of the HD-sEMG electrodes</p>
-            <p class="pub-authors"><span class="me">H. Zhang</span>, C. Wang, W. Guo, L. Guo, C. Lin</p>
-            <div class="pub-meta">
-              <span class="badge venue">IEEE ROBIO</span>
-              <span class="badge first">第一作者</span>
-              <span class="pub-cite">4</span>
-              <span class="pub-year">2019</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="ijcai-w-2019">
-            <p class="pub-title">Towards diversity activity recognition via LSTM CNN Encoder-Decoder neural network</p>
-            <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, L. Wang</p>
-            <div class="pub-meta">
-              <span class="badge venue">IJCAI 2019 · Workshop</span>
-              <span class="badge first">共同一作</span>
-              <span class="pub-year">2019</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="embc-grasp-2019">
-            <p class="pub-title">Continuous estimation of grasp movement with sEMG and temporal convolutional nets model</p>
-            <p class="pub-authors"><span class="me">H. Zhang</span>, W. Guo, C. Wang, C. Lin, L. Li, X. Huang</p>
-            <div class="pub-meta">
-              <span class="badge venue">IEEE EMBC</span>
-              <span class="badge first">第一作者</span>
-              <span class="pub-year">2019</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="embc-joints-2019">
-            <p class="pub-title">Continuous upper limb joint angles estimation with sEMG signals based on TCN</p>
-            <p class="pub-authors"><span class="me">H. Zhang</span>, C. Ma</p>
-            <div class="pub-meta">
-              <span class="badge venue">IEEE EMBC</span>
-              <span class="badge first">第一作者</span>
-              <span class="pub-year">2019 · Poster</span>
-            </div>
-          </li>
-          <li class="pub" data-pub-id="ccrs-dlgc-2019">
-            <p class="pub-title">基于 DLGC 神经网络的手势识别中高密度电极的时空特性变换的研究</p>
-            <p class="pub-authors"><span class="me">张行</span>, 林闯, 王超, 郭伟钰</p>
-            <div class="pub-meta">
-              <span class="badge venue">中国机器人学术年会（CCRS）</span>
-              <span class="badge">中文</span>
-              <span class="badge first">第一作者</span>
-              <span class="pub-year">2019 · Poster</span>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <div class="pub-group">
-        <div class="pub-group-title">学术专著<span class="count">1 部</span></div>
-        <ol class="pub-list">
-          <li class="pub" data-pub-id="book-wifi-dl-2021">
-            <p class="pub-title">Deep Learning for Device-free Human Activity Recognition Using WiFi Signals</p>
-            <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>, W. Guo, J. Fang, B. Lu, C. Ma, G. Li, C. Lin, L. Wang</p>
-            <div class="pub-meta">
-              <span class="badge venue">Generalization with Deep Learning</span>
-              <span class="badge">英文学术专著（章节）</span>
-              <span class="pub-year">2021</span>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <p class="pub-note">† 共同第一作者 · 被引数据来自 Google Scholar（截至 2026.09）· 论文原文链接补充中</p>
-
-      <div class="scholar-banner">
-        <div class="txt">
-          <b>🎓 Google Scholar 学术主页</b>
-          <p>含肌电手势识别、WiFi 感知动作识别、多模态学习等方向 · 数据截至 2026.09</p>
-        </div>
-        <div class="scholar-stats">
-          <div><b>402</b><span>总引用</span></div>
-          <div><b>6</b><span>h-index</span></div>
-          <div><b>6</b><span>i10-index</span></div>
-          <div><b>12</b><span>学术成果</span></div>
-        </div>
-        <a class="btn btn-solid" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">前往学术主页 ↗</a>
-      </div>
-
-      <div class="research-note">
-        <b>科研经历（中国科学院深圳先进技术研究院）：</b>
-        高密度肌电手势识别（利用卷积网络平移不变性解决电极位移与缺失）、WiFi 信号人体动作识别（时空序列 Encoder-Decoder）、
-        肌电信号关节角度连续估计（RNN + Attention / TCN 跨模态拟合）；参与<b>国家 863 计划</b>与<b>国家自然科学基金重点项目</b>，
-        相关技术应用于多自由度假肢臂、下肢康复机器人样机。
-      </div>
-    </section>
-
-    <!-- 教育与履历 -->
-    <section id="timeline">
-      <div class="sec-head">
-        <div class="sec-label">Experience</div>
-        <h2>教育与履历<span class="en-title">Education · Career</span></h2>
-      </div>
-      <ul class="timeline">
-        <li class="tl-item">
-          <div class="tl-date">2024.06 – 至今</div>
-          <div class="tl-head"><span class="org">中国移动咪咕公司（游戏业务）</span><span class="role-title">AI 团队负责人 / AI 算法总监</span></div>
-          <p class="tl-desc">负责公司 AI 战略方向制定与落地，从 0 到 1 组建覆盖算法、工程、数据、产品的全栈 AI 团队；主导 AI 游戏生成引擎、AI 游戏智能体、AIGC 体感健身等产品。</p>
-        </li>
-        <li class="tl-item">
-          <div class="tl-date">2021.08 – 2024.06</div>
-          <div class="tl-head"><span class="org">华为技术有限公司 · 盘古大模型团队</span><span class="role-title">算法工程师 → 高级算法工程师</span></div>
-          <p class="tl-desc">华为自研文生图大模型（EDD 架构）研发与商用；AIGC 广告多模态理解与生成；大屏隔空手势交互；IMU 主动笔与投屏时延优化。</p>
-        </li>
-        <li class="tl-item">
-          <div class="tl-date">2018.09 – 2021.07</div>
-          <div class="tl-head"><span class="org">中国科学院大学</span><span class="role-title">计算机技术 · 硕士</span></div>
-          <p class="tl-desc">研究方向：机器学习、深度学习（CV / NLP / 多模态交互）、数据工程；于中科院深圳先进技术研究院开展科研工作。</p>
-        </li>
-        <li class="tl-item">
-          <div class="tl-date">2014.09 – 2018.07</div>
-          <div class="tl-head"><span class="org">长春工业大学</span><span class="role-title">计算机科学与技术 · 本科</span></div>
-          <p class="tl-desc">中国软件杯全国二等奖、全国高教社杯数学建模全国二等奖等竞赛经历。</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- 荣誉奖项 -->
-    <section id="honors">
-      <div class="sec-head">
-        <div class="sec-label">Honors</div>
-        <h2>荣誉与奖项<span class="en-title">Honors · Awards</span></h2>
-      </div>
-      <div class="honor-grid">
-        <div class="honor">
-          <h3>👤 个人荣誉</h3>
-          <ul>
-            <li><strong>中国移动集团「拔尖人才」计划</strong>入选</li>
-            <li><strong>2026 年紫金山英才计划</strong>（建邺区双创项目创新类，资助 50 万元）</li>
-            <li><strong>华为产品线研发部长奖 × 3</strong>（2021 – 2023）</li>
-            <li>2020 DeeCamp 人工智能训练营 · 赛道第三名</li>
-            <li>2016 中国软件杯全国二等奖 · 全国高教社杯数学建模全国二等奖</li>
-          </ul>
-        </div>
-        <div class="honor">
-          <h3>🏆 团队成果</h3>
-          <ul>
-            <li><strong>工信部与国家体育总局</strong> 2024 年度智能体育典型案例</li>
-            <li><strong>广电总局</strong> 2025 年「全国智慧广电网络新服务」</li>
-            <li><strong>「华彩杯」算力大赛</strong>数字内容专题二等奖</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 媒体报道 -->
-    <section id="media">
-      <div class="sec-head">
-        <div class="sec-label">Media Coverage</div>
-        <h2>媒体报道<span class="en-title">从求学探索到产品落地</span></h2>
-      </div>
-      <div class="media-list">
-        <a class="media-card" href="http://mp.cnfol.com/52773/article/1785505108-142606144.html" target="_blank" rel="noopener">
-          <div class="media-src">
-            <span class="src-badge">产品报道</span>
-            <span class="src-name">智能相对论 · 中金在线</span>
-            <span class="src-date">2026.07 · ChinaJoy</span>
-          </div>
-          <div class="media-body">
-            <h3>《AI 钻进游戏社区，咪咕游戏打的是什么算盘？》<span class="link-mark">↗</span></h3>
-            <p>2026 ChinaJoy 现场直击：观众一句话生成可直接上手的小游戏；玩《双影奇境》卡关，按 F1 即时弹出走位指引；AI 伴玩智能体「星璃」陪聊、讲剧情、剪高光；AI 娱乐主机让体感健身零门槛——同日咪咕发布「AI 智造 · AI 游戏创作计划」产业生态。</p>
-          </div>
-        </a>
-        <a class="media-card" href="https://news.youth.cn/jsxw/202511/t20251124_16367900.htm" target="_blank" rel="noopener">
-          <div class="media-src">
-            <span class="src-badge">工作事迹</span>
-            <span class="src-name">中国青年网</span>
-            <span class="src-date">2025.11</span>
-          </div>
-          <div class="media-body">
-            <h3>《AI 青年不止热爱 | 用 AI 创启无限 智领未来》<span class="link-mark">↗</span></h3>
-            <p>「一个游戏平台如何与 AI 技术深度融合，为用户带来更新潮、便捷的游戏体验？」作为咪咕快游 AI 技术研发人员，张行正与同伴们一起探索作答；报道同期预热动感地带 AI+ 高校创智计划总决赛。</p>
-          </div>
-        </a>
-        <a class="media-card" href="https://www.siat.ac.cn/yxsh/xshd/202412/t20241214_7459159.html" target="_blank" rel="noopener">
-          <div class="media-src">
-            <span class="src-badge">学习阶段</span>
-            <span class="src-name">中科院深圳先进院</span>
-            <span class="src-date">2021.06 · 毕业季</span>
-          </div>
-          <div class="media-body">
-            <h3>《毕业季 · 正青春 | 张行：专心、专注、专业的小行家》<span class="link-mark">↗</span></h3>
-            <p>硕士毕业季专访：于集成所神经工程研究中心师从李光林研究员，研究肌电控制、深度学习与人体运动意图识别；发表 3 篇 SCI，赴 IJCAI、ROBIO 国际会议作报告，并编写 World Scientific 智能感知算法书籍章节。</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-  </main>
+  <!-- 主要内容（各板块由 render.js 动态渲染） -->
+  <main class="container" id="main-content"></main>
 
   <!-- 页脚 -->
   <footer>
@@ -999,19 +641,16 @@
     </div>
   </footer>
 
-  <!-- 论文原文链接配置：已独立为 papers.js 文件，编辑该文件即可为每篇论文配置地址（填入 URL 后标题自动变为可点击链接） -->
+  <noscript>
+    <p style="text-align: center; padding: 40px 20px; color: #5b6b7b;">
+      本页面需要启用 JavaScript 才能显示内容（数据与结构分离设计）。
+    </p>
+  </noscript>
+
+  <!-- 加载顺序：内容数据 → 论文链接 → 渲染逻辑 -->
+  <script src="site-data.js"></script>
   <script src="papers.js"></script>
-  <script>
-    (function () {
-      document.querySelectorAll(".pub[data-pub-id]").forEach(function (el) {
-        var url = (PAPER_LINKS[el.getAttribute("data-pub-id")] || "").trim();
-        if (!url) return;
-        var t = el.querySelector(".pub-title");
-        if (!t || t.querySelector("a")) return;
-        t.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener">' + t.textContent + '<span class="link-mark">↗</span></a>';
-      });
-    })();
-  </script>
+  <script src="render.js"></script>
 
 </body>
 </html>

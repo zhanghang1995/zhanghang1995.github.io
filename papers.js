@@ -13,7 +13,7 @@
      2. 出版社官网直接搜论文标题：
         · IEEE 会议/期刊（RA-L、ROBIO、EMBC）→ ieeexplore.ieee.org
         · Elsevier（Neurocomputing、BSPC）    → sciencedirect.com
-        · Springer Nature（Scientific Data）  → nature.com（开放获取，可放 PDF）
+        · Scientific Data                     → nature.com（开放获取，可放 PDF）
         · IOP（Journal of Neural Engineering）→ iopscience.iop.org
         · IntechOpen 专著章节                 → intechopen.com（开放获取）
      3. 有 arXiv 预印版的也可用 arxiv.org 链接
@@ -44,7 +44,7 @@ var PAPER_LINKS = {
 
   // Surface electromyogram, kinematic, and kinetic dataset of lower limb
   // walking for movement intent recognition
-  // Scientific Data（Nature 子刊）· 2023 · 10(1): 358 · 被引 67
+  // Scientific Data · 2023 · 10(1): 358 · 被引 67
   "scidata-walking-2023": "https://www.nature.com/articles/s41597-023-02263-3",
 
   // Long exposure convolutional memory network for accurate estimation of
