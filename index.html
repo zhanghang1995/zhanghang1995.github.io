@@ -1,291 +1,796 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>张行 Zhang Hang · 个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="张行（Zhang Hang），中国移动咪咕 AI 团队负责人 / AI 算法总监，原华为盘古大模型团队高级算法工程师，中国科学院大学硕士。专注大模型后训练、文生图、多模态与 AI Agent 的研究落地。">
+  <meta name="author" content="Zhang Hang">
+  <meta name="theme-color" content="#1554a3">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  <meta property="og:title" content="张行 Zhang Hang · 个人主页">
+  <meta property="og:url" content="https://zhanghang1995.github.io/">
+  <meta property="og:site_name" content="张行 Zhang Hang">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:description" content="工程 × 学术：大模型后训练、文生图、多模态、AI Agent。论文 10 篇（含 Nature 子刊 Scientific Data、Neurocomputing、IJCAI），英文专著 1 部。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%231554a3'/%3E%3Ctext%20x='32'%20y='45'%20font-size='34'%20font-family='Georgia,Songti%20SC,serif'%20fill='%23ffffff'%20text-anchor='middle'%3E%E8%A1%8C%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --ink: #1c2b3a;
+      --muted: #5b6b7b;
+      --faint: #8a97a5;
+      --accent: #1554a3;
+      --accent-dark: #0e3d77;
+      --accent-light: #eaf1fa;
+      --gold: #a16207;
+      --gold-light: #fdf6e3;
+      --line: #e3e8ee;
+      --serif: Georgia, "Times New Roman", "Songti SC", "Noto Serif SC", "SimSun", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --mono: "SF Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
+    }
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+    html { scroll-behavior: smooth; }
 
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+    ::selection { background: #cfe0f5; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- 顶部导航 ---------- */
+    nav.topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      gap: 16px;
+    }
+    .brand {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .brand em { font-style: italic; font-weight: 400; color: var(--faint); font-size: 14px; margin-left: 6px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .nav-links a:hover { color: var(--accent-dark); background: var(--accent-light); text-decoration: none; }
+    .nav-scholar {
+      margin-left: 8px;
+      font-size: 13px;
+      color: var(--accent-dark);
+      border: 1px solid #c5d6ee;
+      background: var(--accent-light);
+      padding: 5px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .nav-scholar:hover { background: #dce9f8; text-decoration: none; }
+
+    /* ---------- Hero ---------- */
+    header.hero {
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid var(--accent);
+      background:
+        radial-gradient(900px 320px at 85% -10%, rgba(21, 84, 163, 0.08), transparent 65%),
+        radial-gradient(600px 260px at 8% 0%, rgba(21, 84, 163, 0.05), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+    }
+    .hero-inner { padding: 72px 0 52px; }
+    .hero-grid { display: flex; gap: 36px; align-items: flex-start; }
+    .avatar {
+      flex: 0 0 auto;
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1554a3 0%, #3f7cc4 100%);
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 46px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(21, 84, 163, 0.25), inset 0 0 0 4px rgba(255, 255, 255, 0.65);
+    }
+    .hero-main { flex: 1 1 auto; min-width: 0; }
+    h1.name {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: 1px;
+    }
+    h1.name .en {
+      font-size: 19px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--faint);
+      margin-left: 10px;
+      letter-spacing: 0.5px;
+    }
+    .role { margin-top: 8px; font-size: 15.5px; color: var(--ink); }
+    .role strong { color: var(--accent-dark); font-weight: 600; }
+    .role .sep, .meta .sep { color: #c3ccd6; margin: 0 8px; }
+    .meta { margin-top: 4px; font-size: 14px; color: var(--muted); }
+    .bio {
+      margin-top: 18px;
+      max-width: 760px;
+      color: #33465a;
+      font-size: 15.5px;
+      line-height: 1.95;
+      text-align: justify;
+    }
+    .motto {
+      margin-top: 14px;
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--accent-dark);
+      font-size: 15px;
+    }
+    .motto::before { content: "「"; color: var(--faint); }
+    .motto::after { content: "」"; color: var(--faint); }
+
+    .actions { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: all 0.18s ease;
+    }
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+    .btn-solid { background: var(--accent); color: #fff; box-shadow: 0 3px 12px rgba(21, 84, 163, 0.28); }
+    .btn-solid:hover { background: var(--accent-dark); color: #fff; }
+    .btn-outline { background: #fff; color: var(--accent-dark); border-color: #c9d8ec; }
+    .btn-outline:hover { border-color: var(--accent); background: var(--accent-light); }
+
+    .stats {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .stat { background: rgba(255, 255, 255, 0.85); padding: 18px 20px 16px; }
+    .stat .num {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+    }
+    .stat .num small { font-size: 15px; font-weight: 600; margin-left: 2px; }
+    .stat .lab { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* ---------- 章节通用 ---------- */
+    main { padding: 20px 0 72px; }
+    section { margin-top: 64px; scroll-margin-top: 76px; }
+    .sec-head { margin-bottom: 26px; }
+    .sec-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sec-head h2 {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 700;
+      margin-top: 4px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .sec-head h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--line), transparent);
+      transform: translateY(-5px);
+    }
+    .sec-head .en-title { font-size: 14px; font-style: italic; font-weight: 400; color: var(--faint); }
+
+    /* ---------- 研究方向 ---------- */
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 18px;
+    }
+    .interest {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 24px;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .interest:hover { box-shadow: 0 8px 26px rgba(28, 43, 58, 0.08); transform: translateY(-2px); }
+    .interest h3 {
+      font-family: var(--serif);
+      font-size: 17.5px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .interest h3 .ico {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      border-radius: 9px;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+    }
+    .interest p { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.85; }
+    .chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      border-radius: 999px;
+      padding: 3px 12px;
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+
+    /* ---------- 工程实践 ---------- */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 18px;
+    }
+    .proj {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .proj:hover { box-shadow: 0 8px 26px rgba(28, 43, 58, 0.08); transform: translateY(-2px); }
+    .proj-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-size: 12px;
+      color: var(--accent-dark);
+      background: var(--accent-light);
+      border-radius: 999px;
+      padding: 2px 10px;
+      white-space: nowrap;
+    }
+    .tag.gold { color: var(--gold); background: var(--gold-light); }
+    .proj h3 { font-family: var(--serif); font-size: 17px; margin-top: 10px; line-height: 1.5; }
+    .proj ul { margin: 10px 0 0 18px; }
+    .proj li { font-size: 13.8px; color: #44566b; margin-top: 6px; line-height: 1.8; }
+    .proj li::marker { color: var(--accent); }
+    .impact {
+      margin-top: auto;
+      padding-top: 14px;
+      margin-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+    .impact::before { content: "✦ "; color: var(--accent); }
+    .impact strong { color: var(--accent-dark); font-weight: 700; }
+
+    /* ---------- 学术成果 ---------- */
+    .pub-list { list-style: none; display: grid; gap: 12px; }
+    .pub {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 16px 20px;
+      transition: box-shadow 0.2s ease;
+    }
+    .pub:hover { box-shadow: 0 6px 20px rgba(28, 43, 58, 0.07); }
+    .pub-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.6; }
+    .pub-authors { margin-top: 4px; font-size: 13px; color: var(--muted); font-style: italic; }
+    .pub-authors .me { color: var(--accent-dark); font-weight: 600; font-style: normal; }
+    .pub-meta { margin-top: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      font-size: 12px;
+      border-radius: 999px;
+      padding: 2px 10px;
+      background: #eef1f5;
+      color: #4a5a6b;
+      white-space: nowrap;
+    }
+    .badge.venue { background: var(--accent-light); color: var(--accent-dark); font-weight: 600; }
+    .badge.first { background: var(--gold-light); color: var(--gold); font-weight: 600; }
+    .pub-year { font-family: var(--mono); font-size: 12.5px; color: var(--faint); margin-left: auto; }
+    .pub-note { margin-top: 6px; font-size: 12.5px; color: var(--faint); }
+
+    .scholar-banner {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: linear-gradient(120deg, #f3f7fc 0%, #eaf1fa 100%);
+      border: 1px solid #d5e2f2;
+      border-radius: 12px;
+      padding: 18px 24px;
+    }
+    .scholar-banner .txt { flex: 1 1 260px; }
+    .scholar-banner .txt b { font-family: var(--serif); font-size: 16px; }
+    .scholar-banner .txt p { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+    .research-note {
+      margin-top: 22px;
+      font-size: 13.8px;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 20px;
+    }
+    .research-note b { color: var(--ink); }
+
+    /* ---------- 履历时间线 ---------- */
+    .timeline { list-style: none; position: relative; padding-left: 26px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent) 0%, #c9d8ec 100%);
+    }
+    .tl-item { position: relative; padding: 0 0 30px 22px; }
+    .tl-item:last-child { padding-bottom: 4px; }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 7px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(21, 84, 163, 0.12);
+    }
+    .tl-date { font-family: var(--mono); font-size: 12.5px; color: var(--accent); letter-spacing: 0.3px; }
+    .tl-head {
+      margin-top: 2px;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tl-head .org { color: var(--ink); }
+    .tl-head .role-title { font-size: 14px; font-weight: 400; color: var(--muted); }
+    .tl-desc { margin-top: 4px; font-size: 14px; color: var(--muted); max-width: 780px; }
+
+    /* ---------- 荣誉奖项 ---------- */
+    .honor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; }
+    .honor {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .honor h3 { font-family: var(--serif); font-size: 16.5px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+    .honor ul { list-style: none; margin-top: 6px; }
+    .honor li {
+      position: relative;
+      padding: 9px 0 9px 24px;
+      font-size: 14px;
+      color: #44566b;
+      border-bottom: 1px dashed #edf1f5;
+    }
+    .honor li:last-child { border-bottom: none; }
+    .honor li::before { content: "✦"; position: absolute; left: 2px; color: var(--gold); font-size: 13px; top: 11px; }
+    .honor li strong { color: var(--ink); }
+
+    /* ---------- 页脚 ---------- */
+    footer {
+      border-top: 1px solid var(--line);
+      background: #fbfcfe;
+      padding: 30px 0 36px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 720px) {
+      .hero-grid { flex-direction: column; gap: 22px; }
+      h1.name { font-size: 30px; }
+      .hero-inner { padding: 48px 0 36px; }
+      .nav-links a:not(.nav-scholar) { display: none; }
+      section { margin-top: 48px; }
+      .pub-year { margin-left: 0; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- 顶部导航 -->
+  <nav class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">张行<em>Zhang Hang</em></a>
+      <div class="nav-links">
+        <a href="#research">研究方向</a>
+        <a href="#engineering">工程实践</a>
+        <a href="#publications">学术成果</a>
+        <a href="#timeline">履历</a>
+        <a href="#honors">荣誉</a>
+        <a class="nav-scholar" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
       </div>
     </div>
-  </div>
-</header>
+  </nav>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-LeetCode-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/20/LeetCode-1/" class="article-date">
-  <time class="dt-published" datetime="2021-04-20T09:35:51.000Z" itemprop="datePublished">2021-04-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/20/LeetCode-1/">LeetCode_draft</a>
-    </h1>
-  
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-grid">
+        <div class="avatar">行</div>
+        <div class="hero-main">
+          <h1 class="name">张行<span class="en">Zhang Hang</span></h1>
+          <p class="role">
+            <strong>中国移动咪咕公司 · AI 团队负责人 / AI 算法总监</strong>
+            <span class="sep">|</span>原华为盘古大模型团队 · 高级算法工程师
+          </p>
+          <p class="meta">
+            中国科学院大学 · 计算机技术硕士<span class="sep">·</span>中国科学院深圳先进技术研究院科研经历
+          </p>
+          <p class="bio">
+            长期耕耘<strong>大模型训练与 AIGC 工程化落地</strong>：主导文生图大模型、AI 游戏智能体、多智能体游戏生成引擎等产品从研发到商用，
+            多项功能行业首发；学术方面发表论文 10 篇（含 Nature 子刊 <em>Scientific Data</em>、<em>Neurocomputing</em>、IJCAI 等），
+            出版英文专著 1 部，申请发明专利多项。兴趣横跨<strong>算法研究与工程落地</strong>——既在顶刊顶会发表论文，也让 AI 能力走进千万用户的产品。
+          </p>
+          <p class="motto">从论文到产品，让大模型真正走进游戏与内容</p>
+          <div class="actions">
+            <a class="btn btn-solid" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">🎓 Google Scholar 学术主页</a>
+            <a class="btn btn-outline" href="https://github.com/zhanghang1995" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-outline" href="mailto:13166826436@sina.cn">✉️ Email</a>
+            <a class="btn btn-outline" href="/archives/">📚 博客存档</a>
+          </div>
+        </div>
+      </div>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
+      <div class="stats">
+        <div class="stat"><div class="num">10<small>篇</small></div><div class="lab">学术论文（Nature 子刊 / SCI 一区等）</div></div>
+        <div class="stat"><div class="num">1<small>部</small></div><div class="lab">英文学术专著</div></div>
+        <div class="stat"><div class="num">多项</div><div class="lab">发明专利（已申请）</div></div>
+        <div class="stat"><div class="num">多项</div><div class="lab">行业首发的 AI 产品功能</div></div>
+        <div class="stat"><div class="num">2000万<small>+</small></div><div class="lab">产品服务用户规模</div></div>
+      </div>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/LeetCode-1/" data-id="cknpw4k6o0001316i8tccd83w" data-title="LeetCode_draft" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+  </header>
 
+  <!-- 主要内容 -->
+  <main class="container">
 
+    <!-- 研究方向 -->
+    <section id="research">
+      <div class="sec-head">
+        <div class="sec-label">Research Interests</div>
+        <h2>研究方向<span class="en-title">算法研究 × 工程实践</span></h2>
+      </div>
+      <div class="interest-grid">
+        <div class="interest">
+          <h3><span class="ico">🧠</span>大语言模型与后训练</h3>
+          <p>指令微调（Full / LoRA SFT）与强化学习（RLHF / DPO / RAFT / ReFL），具备 7B–14B 垂域模型从数据构建到部署的完整后训练经验。</p>
+          <div class="chips">
+            <span class="chip">SFT</span><span class="chip">RLHF / DPO</span><span class="chip">LoRA</span><span class="chip">Qwen3-14B</span>
+          </div>
+        </div>
+        <div class="interest">
+          <h3><span class="ico">🎨</span>图像与视频生成</h3>
+          <p>SD / DiT 架构的文生图与文生视频模型：大规模数据构建（Recaption、自动化标注）、预训练与强化学习优化、风格与主体一致性控制。</p>
+          <div class="chips">
+            <span class="chip">Stable Diffusion</span><span class="chip">DiT</span><span class="chip">DreamBooth</span><span class="chip">ComfyUI</span>
+          </div>
+        </div>
+        <div class="interest">
+          <h3><span class="ico">👁️</span>多模态与视觉识别</h3>
+          <p>CLIP / SigLip2 多模态向量模型的预训练与对比学习微调；YOLO、RTMPose 等视觉识别模型的算法优化与端侧落地。</p>
+          <div class="chips">
+            <span class="chip">CLIP / SigLip2</span><span class="chip">对比学习</span><span class="chip">YOLO</span><span class="chip">RTMPose</span>
+          </div>
+        </div>
+        <div class="interest">
+          <h3><span class="ico">🤖</span>Agent 与大规模训练</h3>
+          <p>基于 Harness 架构的多智能体协同生成；DeepSpeed 训练优化，GPU / Ascend NPU 下百亿级数据与参数量的稳定训练调优。</p>
+          <div class="chips">
+            <span class="chip">Multi-Agent</span><span class="chip">LangGraph / MCP</span><span class="chip">DeepSpeed</span><span class="chip">Ascend NPU</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  
-    <article id="post-LeetCode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/20/LeetCode/" class="article-date">
-  <time class="dt-published" datetime="2021-04-20T09:32:06.000Z" itemprop="datePublished">2021-04-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/20/LeetCode/">LeetCode</a>
-    </h1>
-  
+    <!-- 工程实践 -->
+    <section id="engineering">
+      <div class="sec-head">
+        <div class="sec-label">Engineering</div>
+        <h2>工程实践<span class="en-title">从算法研究到亿级调用的产品落地</span></h2>
+      </div>
+      <div class="proj-grid">
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/LeetCode/" data-id="cknpw4k6q0002316ibfdr0ezq" data-title="LeetCode" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+        <article class="proj">
+          <div class="proj-top">
+            <span class="tag">中国移动咪咕 · 2024 – 至今</span><span class="tag gold">全网上线</span>
+          </div>
+          <h3>多智能体协同的 AI 游戏生成引擎「咪咕智造」</h3>
+          <ul>
+            <li>基于 Claude Code CLI 搭建游戏创作后端服务，研发游戏 Skill、MCP 等工具链，实现<strong>一句话生成游戏、多轮对话编辑</strong>；</li>
+            <li>微调 GDD 生成模型（Qwen3-14B），构建「意图 → 策划 → 模板」自动化工作流，创作效率提升 <strong>2–3 倍</strong>。</li>
+          </ul>
+          <p class="impact">日均 Token 消耗超 <strong>10 亿</strong> · 上线 1 月生产游戏 <strong>4000+</strong> 款 · 覆盖用户 <strong>20 万+</strong></p>
+        </article>
 
+        <article class="proj">
+          <div class="proj-top">
+            <span class="tag">中国移动咪咕 · 2024 – 至今</span><span class="tag gold">多项行业首发</span>
+          </div>
+          <h3>AI 游戏智能体（搜索 / 问答 / 攻略 / 伴玩 / 回帖）</h3>
+          <ul>
+            <li>构建十万级意图数据，Full / LoRA 微调 7B 模型，意图识别精度达 <strong>97%</strong>；</li>
+            <li>SigLip2 预训练 + 对比学习迭代，视频卡关检测精度 <strong>95%</strong>、误差控制在 <strong>10s</strong> 内；</li>
+            <li>AI 伴玩覆盖游戏 <strong>1000+</strong> 款；AI 攻略行业首发应用于《双影奇境》《拳皇 15》。</li>
+          </ul>
+          <p class="impact">日均 Token 消耗超 <strong>3 亿</strong> · 上线 1 年服务用户 <strong>100 万+</strong></p>
+        </article>
 
+        <article class="proj">
+          <div class="proj-top">
+            <span class="tag">中国移动咪咕 · 2024 – 至今</span><span class="tag gold">商业化落地</span>
+          </div>
+          <h3>AIGC 体感健身内容生产与交互</h3>
+          <ul>
+            <li>SD / DiT 图像生成模型训练，LoRA 与概念学习实现多主体风格一致性；</li>
+            <li>十万级人体动作数据，优化 YOLO / RTMPose，攻克弱光、复杂背景识别，精度 <strong>95%+</strong>，支持 12 类动作；</li>
+            <li>基于 ComfyUI 搭建「文本 → 图像 / 视频」内容生产管线。</li>
+          </ul>
+          <p class="impact">服务用户超 <strong>2000 万</strong> · 拓展收入 <strong>1500 万</strong></p>
+        </article>
 
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/20/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-04-20T03:17:23.014Z" itemprop="datePublished">2021-04-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/20/hello-world/">Hello World</a>
-    </h1>
-  
+        <article class="proj">
+          <div class="proj-top">
+            <span class="tag">华为 · 盘古大模型团队 · 2021 – 2024</span>
+          </div>
+          <h3>华为自研文生图大模型与 AIGC 广告搜推</h3>
+          <ul>
+            <li>主导 EDD 架构（3B）人像专项优化，构建 SFT / RLHF 范式，多阶段强化策略（RAFT / DPO / ReFL + 概念学习 + 连续学习）；</li>
+            <li>主导 Diffusion 底座训练：百亿级数据与参数量，分阶段训练与 Recaption 数据策略；</li>
+            <li>多模态 Embedding（文 / 视 / 图）：关键词精度 +5%、打标 +4%，带动 ECPM 显著提升。</li>
+          </ul>
+          <p class="impact">商用发布华为 <strong>P70 / 鸿蒙 NEXT</strong> · 覆盖数千万台设备 · 广告向量模型带动千万美金级年收入</p>
+        </article>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <article class="proj">
+          <div class="proj-top">
+            <span class="tag">华为 · 2021 – 2024</span><span class="tag gold">业界首发</span>
+          </div>
+          <h3>大屏隔空手势交互算法</h3>
+          <ul>
+            <li>构建 600 万+ 样本多任务数据平台（检测 / 分类 / 跟踪），数据生产效率提升 <strong>80%</strong>；</li>
+            <li>改进 MobileNet V3 + NanoDet：Focal Loss 解样本不均衡，Teacher-Student 蒸馏在精度损失 &lt;1% 下提速 <strong>30%+</strong>，端到端召回 +20%。</li>
+          </ul>
+          <p class="impact">落地 <strong>IdeaHub 及鸿蒙生态</strong> · 赋能 P / Mate 旗舰系列</p>
+        </article>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+        <article class="proj">
+          <div class="proj-top">
+            <span class="tag">华为 · 2021 – 2024</span><span class="tag gold">产品线部长奖</span>
+          </div>
+          <h3>IMU 主动笔与 N2N 投屏时延优化</h3>
+          <ul>
+            <li>优化后 Mahony 算法：动态累计误差清零 + 自适应显控比，误差 <strong>&lt;10°/h</strong>（申请专利）；</li>
+            <li>YOLOv3 + 卡尔曼滤波笔尖实时检测，算法集成 HiSilicon DSP 芯片；</li>
+            <li>基于 LSTM 的动态缓存机制，投屏时延降低 <strong>20%</strong>。</li>
+          </ul>
+          <p class="impact">助力 <strong>IdeaHub S2</strong> 新品发布 · 落地鸿蒙空鼠与投屏方案</p>
+        </article>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+      </div>
+    </section>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    <!-- 学术成果 -->
+    <section id="publications">
+      <div class="sec-head">
+        <div class="sec-label">Publications</div>
+        <h2>学术成果<span class="en-title">代表性论文 · 学术专著</span></h2>
+      </div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+      <ol class="pub-list">
+        <li class="pub">
+          <p class="pub-title">Surface electromyogram, kinematic, and kinetic dataset of lower limb walking for movement intent recognition</p>
+          <p class="pub-authors">W. Wei, F. Tan, <span class="me">H. Zhang</span>, et al.</p>
+          <div class="pub-meta">
+            <span class="badge venue">Scientific Data（Nature 子刊）</span>
+            <span class="badge">SCI Q1</span>
+            <span class="pub-year">2023 · 10(1):358</span>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="pub-title">Towards CSI-based diversity activity recognition via LSTM-CNN Encoder-Decoder neural network</p>
+          <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, et al.</p>
+          <div class="pub-meta">
+            <span class="badge venue">Neurocomputing</span>
+            <span class="badge">SCI Q1</span>
+            <span class="badge first">共同一作</span>
+            <span class="pub-year">2020</span>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="pub-title">sEMG-based continuous estimation of grasp movements by long short-term memory network</p>
+          <p class="pub-authors">C. Wang, W. Guo, <span class="me">H. Zhang</span>, et al.</p>
+          <div class="pub-meta">
+            <span class="badge venue">Biomedical Signal Processing and Control</span>
+            <span class="badge">SCI Q2</span>
+            <span class="pub-year">2020 · 59:101774</span>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="pub-title">DFNN-based gesture recognition with the shift and damage of the HD-sEMG electrodes</p>
+          <p class="pub-authors"><span class="me">H. Zhang</span>, C. Wang, W. Guo, et al.</p>
+          <div class="pub-meta">
+            <span class="badge venue">IEEE ROBIO</span>
+            <span class="badge first">第一作者</span>
+            <span class="pub-year">2019</span>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="pub-title">Continuous estimation of grasp movement with sEMG and temporal convolutional nets model</p>
+          <p class="pub-authors"><span class="me">H. Zhang</span>, W. Guo, C. Wang, et al.</p>
+          <div class="pub-meta">
+            <span class="badge venue">IEEE EMBC</span>
+            <span class="badge first">第一作者</span>
+            <span class="pub-year">2019</span>
+          </div>
+        </li>
+        <li class="pub">
+          <p class="pub-title">Towards diversity activity recognition via LSTM CNN Encoder-Decoder neural network</p>
+          <p class="pub-authors">L. Guo, <span class="me">H. Zhang</span>†, L. Wang</p>
+          <div class="pub-meta">
+            <span class="badge venue">IJCAI Workshop</span>
+            <span class="badge first">共同一作</span>
+            <span class="pub-year">2019</span>
+          </div>
+        </li>
+      </ol>
+      <p class="pub-note">† 共同第一作者 · 完整论文与英文专著列表请见 Google Scholar。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/20/hello-world/" data-id="cknpw4k6k0000316iajvw9m3m" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
+      <div class="scholar-banner">
+        <div class="txt">
+          <b>🎓 Google Scholar 学术主页</b>
+          <p>查看全部论文、引用与 h 指数（含肌电手势识别、WiFi 感知动作识别等方向）</p>
+        </div>
+        <a class="btn btn-solid" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">前往学术主页 ↗</a>
+      </div>
 
+      <div class="research-note">
+        <b>科研经历（中国科学院深圳先进技术研究院）：</b>
+        高密度肌电手势识别（利用卷积网络平移不变性解决电极位移与缺失）、WiFi 信号人体动作识别（时空序列 Encoder-Decoder）、
+        肌电信号关节角度连续估计（RNN + Attention / TCN 跨模态拟合）；参与<b>国家 863 计划</b>与<b>国家自然科学基金重点项目</b>，
+        相关技术应用于多自由度假肢臂、下肢康复机器人样机。
+      </div>
+    </section>
 
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/04/20/LeetCode-1/">LeetCode_draft</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/20/LeetCode/">LeetCode</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/20/hello-world/">Hello World</a>
-          </li>
-        
+    <!-- 教育与履历 -->
+    <section id="timeline">
+      <div class="sec-head">
+        <div class="sec-label">Experience</div>
+        <h2>教育与履历<span class="en-title">Education · Career</span></h2>
+      </div>
+      <ul class="timeline">
+        <li class="tl-item">
+          <div class="tl-date">2024.06 – 至今</div>
+          <div class="tl-head"><span class="org">中国移动咪咕公司（游戏业务）</span><span class="role-title">AI 团队负责人 / AI 算法总监</span></div>
+          <p class="tl-desc">负责公司 AI 战略方向制定与落地，从 0 到 1 组建覆盖算法、工程、数据、产品的全栈 AI 团队；主导 AI 游戏生成引擎、AI 游戏智能体、AIGC 体感健身等产品。</p>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">2021.08 – 2024.06</div>
+          <div class="tl-head"><span class="org">华为技术有限公司 · 盘古大模型团队</span><span class="role-title">算法工程师 → 高级算法工程师</span></div>
+          <p class="tl-desc">华为自研文生图大模型（EDD 架构）研发与商用；AIGC 广告多模态理解与生成；大屏隔空手势交互；IMU 主动笔与投屏时延优化。</p>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">2018.09 – 2021.07</div>
+          <div class="tl-head"><span class="org">中国科学院大学</span><span class="role-title">计算机技术 · 硕士</span></div>
+          <p class="tl-desc">研究方向：机器学习、深度学习（CV / NLP / 多模态交互）、数据工程；于中科院深圳先进技术研究院开展科研工作。</p>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">2014.09 – 2018.07</div>
+          <div class="tl-head"><span class="org">长春工业大学</span><span class="role-title">计算机科学与技术 · 本科</span></div>
+          <p class="tl-desc">中国软件杯全国二等奖、全国高教社杯数学建模全国二等奖等竞赛经历。</p>
+        </li>
       </ul>
-    </div>
-  </div>
+    </section>
 
-  
-</aside>
-        
+    <!-- 荣誉奖项 -->
+    <section id="honors">
+      <div class="sec-head">
+        <div class="sec-label">Honors</div>
+        <h2>荣誉与奖项<span class="en-title">Honors · Awards</span></h2>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+      <div class="honor-grid">
+        <div class="honor">
+          <h3>👤 个人荣誉</h3>
+          <ul>
+            <li><strong>中国移动集团「拔尖人才」计划</strong>入选</li>
+            <li><strong>2026 年紫金山英才计划</strong>（建邺区双创项目创新类，资助 50 万元）</li>
+            <li><strong>华为产品线研发部长奖 × 3</strong>（2021 – 2023）</li>
+            <li>2020 DeeCamp 人工智能训练营 · 赛道第三名</li>
+            <li>2016 中国软件杯全国二等奖 · 全国高教社杯数学建模全国二等奖</li>
+          </ul>
+        </div>
+        <div class="honor">
+          <h3>🏆 团队成果</h3>
+          <ul>
+            <li><strong>工信部与国家体育总局</strong> 2024 年度智能体育典型案例</li>
+            <li><strong>广电总局</strong> 2025 年「全国智慧广电网络新服务」</li>
+            <li><strong>「华彩杯」算力大赛</strong>数字内容专题二等奖</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 张行 Zhang Hang · 由 GitHub Pages 托管</div>
+      <div class="footer-links">
+        <a href="https://github.com/zhanghang1995" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="mailto:13166826436@sina.cn">Email</a>
+        <a href="/archives/">博客存档</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>
