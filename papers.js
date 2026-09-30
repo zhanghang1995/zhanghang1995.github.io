@@ -24,8 +24,8 @@
      git push
      （等待约 1 分钟 CDN 刷新即可看到标题变为链接）
 
-   ▎填写示例（注意引号、逗号都要英文半角）：
-     "ra-l-bilstm-2021": "https://doi.org/10.1109/LRA.2021.xxxxxxx",
+   ▎填写示例（注意引号、逗号都要英文半角；key 请勿改动，只需填引号内的网址）：
+   //   "example-paper-2020": "https://doi.org/10.1109/XXX.2021.xxxxxxx",
    ═══════════════════════════════════════════════════════════════════════ */
 
 var PAPER_LINKS = {
@@ -60,14 +60,14 @@ var PAPER_LINKS = {
   // Towards CSI-based diversity activity recognition via LSTM-CNN
   // Encoder-Decoder neural network
   // Neurocomputing · 2020 · 共同一作 · 被引 32
-  "neurocomputing-2020": "",
+  "neurocomputing-2020": "https://www.sciencedirect.com/science/article/abs/pii/S092523122031777X",
 
   /* ─────────── 会议论文（5 篇） ─────────── */
 
   // DFNN-based gesture recognition with the shift and damage of the
   // HD-sEMG electrodes
   // IEEE ROBIO · 2019 · 第一作者
-  "robio-2019": "",
+  "robio-2019": "https://ieeexplore.ieee.org/abstract/document/8961423/",
 
   // Towards diversity activity recognition via LSTM CNN Encoder-Decoder
   // neural network
@@ -93,6 +93,6 @@ var PAPER_LINKS = {
   // Deep Learning for Device-free Human Activity Recognition Using
   // WiFi Signals
   // 《Generalization with Deep Learning》英文专著章节 · 2021
-  "book-wifi-dl-2021": ""
+  "book-wifi-dl-2021": "https://www.worldscientific.com/worldscibooks/10.1142/11784#t=aboutBook"
 
 };
