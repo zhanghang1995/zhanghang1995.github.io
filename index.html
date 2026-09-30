@@ -43,6 +43,7 @@
       font-size: 16px;
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
+      overflow-wrap: break-word;
     }
 
     ::selection { background: #cfe0f5; }
@@ -78,7 +79,17 @@
       white-space: nowrap;
     }
     .brand em { font-style: italic; font-weight: 400; color: var(--faint); font-size: 14px; margin-left: 6px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: nowrap;
+      min-width: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
     .nav-links a {
       color: var(--muted);
       font-size: 14px;
@@ -183,7 +194,7 @@
     .stats {
       margin-top: 36px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
       gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
@@ -233,7 +244,7 @@
     /* ---------- 研究方向 ---------- */
     .interest-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
       gap: 18px;
     }
     .interest {
@@ -278,7 +289,7 @@
     /* ---------- 工程实践 ---------- */
     .proj-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
       gap: 18px;
     }
     .proj {
@@ -441,7 +452,7 @@
     .tl-desc { margin-top: 4px; font-size: 14px; color: var(--muted); max-width: 780px; }
 
     /* ---------- 荣誉奖项 ---------- */
-    .honor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; }
+    .honor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 18px; }
     .honor {
       background: var(--card);
       border: 1px solid var(--line);
@@ -513,9 +524,12 @@
     /* ---------- 响应式 ---------- */
     @media (max-width: 720px) {
       .hero-grid { flex-direction: column; gap: 22px; }
+      .avatar { width: 88px; height: 88px; font-size: 38px; }
       h1.name { font-size: 30px; }
       .hero-inner { padding: 48px 0 36px; }
-      .nav-links a:not(.nav-scholar) { display: none; }
+      .brand em { display: none; }
+      .nav-scholar { display: none; }
+      .stats .stat:last-child { grid-column: 1 / -1; }
       section { margin-top: 48px; }
       .pub-year { margin-left: 0; }
     }
