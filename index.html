@@ -143,7 +143,7 @@
         radial-gradient(600px 260px at 8% 0%, rgba(21, 84, 163, 0.05), transparent 60%),
         linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
     }
-    .hero-inner { padding: 72px 0 52px; }
+    .hero-inner { padding: 72px 24px 52px; }
     .hero-grid { display: flex; gap: 36px; align-items: flex-start; }
     .avatar {
       flex: 0 0 auto;
@@ -605,14 +605,27 @@
       .hero-grid { flex-direction: column; gap: 22px; }
       .avatar { width: 88px; height: 88px; font-size: 38px; }
       h1.name { font-size: 30px; }
-      .hero-inner { padding: 48px 0 36px; }
+      .hero-inner { padding: 44px 24px 36px; }
       .brand em { display: none; }
       .nav-scholar { display: none; }
-      .stats .stat:last-child { grid-column: 1 / -1; }
+      /* 统计条改行式单列：数字列右对齐，标签不再折行 */
+      .stats { grid-template-columns: 1fr; }
+      .stats .stat { display: flex; align-items: baseline; gap: 14px; padding: 13px 18px; }
+      .stats .stat .num { font-size: 23px; min-width: 100px; text-align: right; }
+      .stats .stat .lab { margin-top: 0; flex: 1; }
+      .nickname { transform: translateY(-2px); }
+      .bio { font-size: 14.5px; line-height: 1.85; }
       section { margin-top: 48px; }
       .pub-year { margin-left: 0; }
       .media-card { flex-direction: column; gap: 10px; }
       .media-src { flex-basis: auto; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 10px; }
+    }
+
+    /* 平板：统计条固定 5 列，避免 auto-fit 降为 4+1 孤行 */
+    @media (min-width: 721px) and (max-width: 1024px) {
+      .stats { grid-template-columns: repeat(5, 1fr); }
+      .stat { padding: 14px 12px 12px; }
+      .stat .lab { font-size: 12px; }
     }
 
     /* ---------- 打印 / 导出 PDF（点击导航「导出 PDF」后在打印对话框选择“存储为 PDF”） ---------- */
