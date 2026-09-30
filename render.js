@@ -98,6 +98,22 @@
       var pubs = data.publications;
       var html = "";
 
+      /* Scholar 横幅 + 科研经历：紧跟板块标题，位于「期刊论文」分组之前 */
+      var s = pubs.scholar;
+      html += '      <div class="scholar-banner">\n' +
+        '        <div class="txt">\n' +
+        "          <b>" + s.title + "</b>\n" +
+        "          <p>" + s.desc + "</p>\n" +
+        "        </div>\n" +
+        '        <div class="scholar-stats">\n' +
+        s.stats.map(function (st) {
+          return "          <div><b>" + st.num + "</b><span>" + st.label + "</span></div>";
+        }).join("\n") + "\n" +
+        "        </div>\n" +
+        '        <a class="btn btn-solid" href="' + s.url + '" target="_blank" rel="noopener">' + s.btn + "</a>\n" +
+        "      </div>\n\n" +
+        '      <div class="research-note">' + pubs.researchNote + "</div>\n\n";
+
       pubs.groups.forEach(function (g) {
         html += '      <div class="pub-group">\n' +
           '        <div class="pub-group-title">' + g.title + '<span class="count">' + g.countLabel + "</span></div>\n" +
@@ -119,21 +135,7 @@
           "\n        </ol>\n      </div>\n\n";
       });
 
-      var s = pubs.scholar;
-      html += '      <p class="pub-note">' + pubs.note + "</p>\n\n" +
-        '      <div class="scholar-banner">\n' +
-        '        <div class="txt">\n' +
-        "          <b>" + s.title + "</b>\n" +
-        "          <p>" + s.desc + "</p>\n" +
-        "        </div>\n" +
-        '        <div class="scholar-stats">\n' +
-        s.stats.map(function (st) {
-          return "          <div><b>" + st.num + "</b><span>" + st.label + "</span></div>";
-        }).join("\n") + "\n" +
-        "        </div>\n" +
-        '        <a class="btn btn-solid" href="' + s.url + '" target="_blank" rel="noopener">' + s.btn + "</a>\n" +
-        "      </div>\n\n" +
-        '      <div class="research-note">' + pubs.researchNote + "</div>";
+      html += '      <p class="pub-note">' + pubs.note + "</p>";
       return html;
     },
 

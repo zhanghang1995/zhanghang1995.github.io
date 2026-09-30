@@ -119,6 +119,19 @@
       white-space: nowrap;
     }
     .nav-scholar:hover { background: #dce9f8; text-decoration: none; }
+    .nav-print {
+      font: inherit;
+      font-size: 13px;
+      color: var(--accent-dark);
+      border: 1px solid #c5d6ee;
+      background: var(--accent-light);
+      padding: 5px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      margin-left: 4px;
+    }
+    .nav-print:hover { background: #dce9f8; }
 
     /* ---------- Hero ---------- */
     header.hero {
@@ -601,6 +614,31 @@
       .media-card { flex-direction: column; gap: 10px; }
       .media-src { flex-basis: auto; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 10px; }
     }
+
+    /* ---------- 打印 / 导出 PDF（点击导航「导出 PDF」后在打印对话框选择“存储为 PDF”） ---------- */
+    @media print {
+      .topbar { display: none; }
+      body { background: #fff; font-size: 13px; }
+      header.hero {
+        border-top: 3px solid var(--accent);
+        background: none;
+      }
+      .hero-inner { padding: 26px 0 20px; }
+      .container { max-width: 100%; }
+      section { margin-top: 26px; }
+      .scholar-banner, .research-note, .stats,
+      .interest, .proj, .pub, .honor, .media-card, .tl-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      .interest, .proj, .honor, .media-card, .scholar-banner, .research-note {
+        box-shadow: none;
+        border: 1px solid #d9e2ee;
+      }
+      a { color: var(--ink); text-decoration: none; }
+      .btn-outline { border: 1px solid #c5d6ee; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
   </style>
 </head>
 <body id="top">
@@ -616,6 +654,7 @@
         <a href="#timeline">履历</a>
         <a href="#honors">荣誉</a>
         <a href="#media">报道</a>
+        <button class="nav-print" id="nav-print" type="button" title="将本页打印 / 存储为 PDF">导出 PDF</button>
         <a class="nav-scholar" href="https://scholar.google.com/citations?user=dISPYjYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
       </div>
     </div>
@@ -651,6 +690,13 @@
   <script src="site-data.js"></script>
   <script src="papers.js"></script>
   <script src="render.js"></script>
+
+  <!-- 导出 PDF：调起浏览器打印，在对话框中选择「存储为 PDF」 -->
+  <script>
+    document.getElementById("nav-print").addEventListener("click", function () {
+      window.print();
+    });
+  </script>
 
 </body>
 </html>
