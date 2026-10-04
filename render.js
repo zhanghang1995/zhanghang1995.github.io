@@ -197,12 +197,40 @@
     }).join("\n");
   }
 
-  /* ---------- 页脚访问人次 ---------- */
+  /* ---------- 页脚访问人次 ----------
+     显示 = visitCount 基数 + 不蒜子（busuanzi）统计的真实访问量；
+     不蒜子脚本把累计值写入 #busuanzi_value_site_pv（隐藏占位），
+     此处监听其变化后合并基数写入页脚；超时或服务异常则保持基数。 */
   function renderVisitCount() {
     var el = document.getElementById("visit-count");
-    if (el && typeof SITE_DATA.visitCount === "number") {
-      el.textContent = SITE_DATA.visitCount.toLocaleString("en-US");
+    if (!el) return;
+    var base = typeof SITE_DATA.visitCount === "number" ? SITE_DATA.visitCount : 0;
+    el.textContent = base.toLocaleString("en-US");
+
+    var bsz = document.getElementById("busuanzi_value_site_pv");
+    if (!bsz || typeof MutationObserver === "undefined") return;
+
+    var applied = false;
+    var observer = new MutationObserver(function () {
+      if (applied) return;
+      var pv = parseInt(bsz.textContent, 10);
+      if (!isNaN(pv) && pv > 0) {
+        applied = true;
+        el.textContent = (base + pv).toLocaleString("en-US");
+        observer.disconnect();
+      }
+    });
+    observer.observe(bsz, { childList: true, characterData: true, subtree: true });
+
+    /* 脚本先于本函数返回时兜底读一次；5 秒后放弃监听保持基数 */
+    observer.takeRecords();
+    var pv0 = parseInt(bsz.textContent, 10);
+    if (!isNaN(pv0) && pv0 > 0) {
+      applied = true;
+      el.textContent = (base + pv0).toLocaleString("en-US");
+      observer.disconnect();
     }
+    setTimeout(function () { observer.disconnect(); }, 5000);
   }
 
   /* ---------- 入口 ---------- */
