@@ -197,9 +197,18 @@
     }).join("\n");
   }
 
+  /* ---------- 页脚访问人次 ---------- */
+  function renderVisitCount() {
+    var el = document.getElementById("visit-count");
+    if (el && typeof SITE_DATA.visitCount === "number") {
+      el.textContent = SITE_DATA.visitCount.toLocaleString("en-US");
+    }
+  }
+
   /* ---------- 入口 ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     renderHero(SITE_DATA.profile, SITE_DATA.stats);
     renderSections();
+    renderVisitCount();
   });
 })();
